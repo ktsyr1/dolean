@@ -32,7 +32,7 @@ const UserDetails = new Schema({
 
 ## Courses
 
-````ts
+```ts
 const Courses = new Schema({
   title: String,
   context: String,
