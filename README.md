@@ -32,12 +32,13 @@ const UserDetails = new Schema({
 
 ## Courses
 
-```ts
+````ts
 const Courses = new Schema({
   title: String,
   context: String,
   links: [String],
   keys: [String],
+  location: String,
   age: {
     start: Number, // @UserDetails.births - min
     end: Number, // @UserDetails.births - max
@@ -46,8 +47,7 @@ const Courses = new Schema({
   price: Number, // @UserDetails.free || @UserDetails.paid
 });
 ```
-
-##
+## معلومات اضافية 
 
 ```json
 [
@@ -95,4 +95,4 @@ const Courses = new Schema({
     "job_opportunities": "بعد الدورة، سيحصل أصحاب الأداء المتميز على فرصة عمل"
   }
 ]
-```
+````
