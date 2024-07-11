@@ -1,0 +1,20 @@
+{
+  "name": "ccs",
+  "version": "1.0.0",
+  "description": "```ts\r const User = new Schema({\r   id: ObjectId,\r   role: [String], // enum: [\"admin\", \"user\"],\r   name: String,\r   phone: String,\r   email: String,\r   password: String,\r });\r ```",
+  "main": "/res/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./res/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.0"
+  }
+}
