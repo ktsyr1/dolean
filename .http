@@ -1,0 +1,16 @@
+POST http://localhost:5000/api/users 
+Content-Type: application/json
+
+{
+    "email": "0f76e3ss1016@emailbbox.pro",
+    "password": "P@ssw0rd",
+    "name": "hasan azxcppd"
+}
+
+HTTP/1.1 201  - Created
+x-powered-by: Express
+content-type: application/json; charset=utf-8
+content-length: 124
+etag: W/"7c-7lrOo9SB99wFf4S7C7li00tjQ1U"
+date: Sat, 13 Jul 2024 11:02:29 GMT
+connection: close
