@@ -14,6 +14,7 @@ this [all prompt](Ai-prompt.md)
 ```bash
 # stap 1
 git clone https://github.com/ktsyr1/student-in-courses.git
+cd student-in-courses/backend
 npm i
 touch .env
 echo "MONGO_URI=ضع رابط قاعدة البيانات" > .env
