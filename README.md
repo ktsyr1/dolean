@@ -5,7 +5,7 @@ this [all prompt](Ai-prompt.md)
 ## team
 
 1. Qotayba Mohammad ( team leader )
-2. 
+2. Jaber lweis
 3. 
 4. 
 
