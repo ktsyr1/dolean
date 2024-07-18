@@ -12,11 +12,10 @@ this [all prompt](Ai-prompt.md)
 ## tasks
 
 ```bash
-# stap 1
-git clone https://github.com/ktsyr1/student-in-courses.git
+# stap 1 
+git pull
 cd student-in-courses/backend
-npm i
-touch .env
+npm i 
 echo "MONGO_URI=ضع رابط قاعدة البيانات" > .env
 npm run start
 
