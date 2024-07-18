@@ -6,8 +6,8 @@ this [all prompt](Ai-prompt.md)
 
 1. Qotayba Mohammad ( team leader )
 2. Jaber lweis
-3. 
-4. 
+3. Manar Alzorkan
+4. Malak
 
 ## tasks
 
