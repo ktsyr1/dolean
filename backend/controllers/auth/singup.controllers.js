@@ -1,12 +1,8 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../../models/User.js';
+import User from '../../models/User.js'; // Adjust the path as necessary
 
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const User = require('./models/User'); // Adjust the path as necessary
-
-exports.signUp = async (req, res) => {
+export const signUp = async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
@@ -18,7 +14,7 @@ exports.signUp = async (req, res) => {
         }
 
         // Check If User Exists In The Database
-        const existingUser = await User.findOne({ email: req.body.email });
+        const existingUser = await User.findOne({ email });
 
         if (existingUser) {
             return res.status(400).json({ message: "Email already exists" });
@@ -30,8 +26,8 @@ exports.signUp = async (req, res) => {
 
         // Save The User To The Database
         const newUser = new User({
-            username: req.body.username,
-            email: req.body.email,
+            username,
+            email,
             password: hashedPassword,
         });
 
