@@ -50,3 +50,24 @@ export default async function signUp(req, res) {
     }
 };
 
+
+export const signup = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ error: 'Email already exists' });
+        }
+
+        // Hash the password before saving
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create the user with the hashed password
+        const user = await User.create({ ...req.body, password: hashedPassword });
+
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        res.status(201).json({ message: 'User created successfully', token });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
