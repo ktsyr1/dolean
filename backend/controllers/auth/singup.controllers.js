@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../../models/User.js'; // Adjust the path as necessary
 
-export const signUp = async (req, res) => {
+export default async function signUp(req, res) {
     try {
         const { username, email, password } = req.body;
 
@@ -36,8 +36,9 @@ export const signUp = async (req, res) => {
         // Generate JWT Token
         const token = jwt.sign(
             { userId: newUser._id, email: newUser.email },
-            'your_secret_key', // Replace with your secret key
-            { expiresIn: '1h' } // Token expiration time
+            // 'your_secret_key', // Replace with your secret key 
+            process.env.JWT_SECRET,
+            // { expiresIn: '1h' } // Token expiration time
         );
 
         return res
@@ -48,3 +49,4 @@ export const signUp = async (req, res) => {
         return res.status(500).json({ message: "Error creating user" });
     }
 };
+

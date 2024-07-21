@@ -2,10 +2,18 @@ POST http://localhost:5000/api/auth
 Content-Type: application/json
 
 {
-    "email": "0f76e3sss1016@emailbbox.pro",
+    "email": "0f76e3asss1016@emailbbox.pro",
     "password": "P@ssw0rd",
     "name":"qotayba"
 }
+
+HTTP/1.1 400  - Bad Request
+x-powered-by: Express
+content-type: application/json; charset=utf-8
+content-length: 58
+etag: W/"3a-d5VCb27c1LwBh42tmo3UntUh/34"
+date: Sun, 21 Jul 2024 15:50:38 GMT
+connection: close
 ###
 GET http://localhost:5000/api/auth 
 Content-Type: application/json
