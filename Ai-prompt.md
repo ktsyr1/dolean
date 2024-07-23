@@ -82,3 +82,15 @@ _المهام_
 1. تنزيل نسخة أولية من المشروع من GitHub
 2. انشاء برينش باسمكم
 3. تنزيل الحزم باستخدام _npm i_
+
+
+note
+
+```
+- /courses get 
+to Controllers & route only
+[filter : location? ,nationality? ,price? ,age? ]
+```
+
+
+- dynamic 

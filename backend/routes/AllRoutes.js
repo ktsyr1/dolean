@@ -1,9 +1,12 @@
 import express from 'express';
 import auth from "./authRoutes.js"
 import users from "./userRoutes.js"
-const router = express();
+import test from "./test.js"
+const app = express();
 
-router.use('/auth', auth);
-router.use('/users', users);
 
-export default router;
+app.use('/test', test)
+app.use('/auth', auth); //ok
+app.use('/users', users);
+
+export default app;

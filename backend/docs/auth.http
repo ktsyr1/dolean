@@ -14,7 +14,7 @@ POST http://localhost:5000/api/auth
 Content-Type: application/json
 
 {
-    "email": "0f76e3asss1016@emailbbox.pro",
+    "email": "0f76e3ass1016@emailbbox.pro",
     "password": "Possw0rd",
     "name":"qotayba",
     "phone":"70222333"
@@ -24,92 +24,48 @@ HTTP/1.1 201  - Created
 x-powered-by: Express
 content-type: application/json; charset=utf-8
 content-length: 226
-etag: W/"e2-uLB4/vFpjwFroWnZsEY6/Wmuma0"
-date: Sun, 21 Jul 2024 17:07:36 GMT
+etag: W/"e2-L9Klpo+Xk++kLf6canOnYGyR1Jg"
+date: Tue, 23 Jul 2024 06:13:17 GMT
 connection: close
-/*
-
-```ts
-// login
-PUT "/api/auth" 
-body: { email, password }
-
-200: {success, token}
-401: {success, message}
-```
-
-[ ? ] send OTP
-*/
 ###
 PUT http://localhost:5000/api/auth 
 Content-Type: application/json
 
 {
-    "email": "0f76e3asss1016@emailbbox.pro",
+    "email": "0f76e3ass1016@emailbbox.pro",
     "password": "Possw0rd" 
 } 
 
 HTTP/1.1 200  - OK
 x-powered-by: Express
 content-type: application/json; charset=utf-8
-content-length: 232
-etag: W/"e8-SteXeeRaaXR17hZJJfdobM6+ktU"
-date: Sun, 21 Jul 2024 17:07:39 GMT
+content-length: 254
+etag: W/"fe-hmCqBDuH+Z/MNgFYzUBuRKe0mNQ"
+date: Tue, 23 Jul 2024 08:07:25 GMT
 connection: close
-/*
-
-```ts
-// reset Password
-POST "/api/auth/reset-password" 
-body: { name,email, phone, password }
- 
-200: {message, token}
-404: {message}
-500: {message}
-```
-
-[ ? ] send OTP link newpassword
-
-*/
 ###
 POST http://localhost:5000/api/auth/reset-password
 Content-Type: application/json
 {
-    "email": "0f76e3asss1016@emailbbox.pro"
+    "email": "0f76e3assss1016@emailbbox.pro"
 }
 
 HTTP/1.1 200  - OK
 x-powered-by: Express
 content-type: application/json; charset=utf-8
-content-length: 76
-etag: W/"4c-0ktbBlfKne+A/skPnKjWkJWK/es"
-date: Sun, 21 Jul 2024 17:09:00 GMT
+content-length: 77
+etag: W/"4d-S8DtpRCJL4px1YXW108bD2KrvMc"
+date: Sun, 21 Jul 2024 18:25:30 GMT
 connection: close
-/*
-
-```ts
-// New Password
-POST "/api/auth/new-password" 
-body: { token, newPassword }
- 
-200: {message}
-404: {message}
-500: {message}
-```
-
-*/
 ###
-POST http://localhost:5000/api/auth/new-password
+GET http://localhost:5000/api/isUser?role=user
 Content-Type: application/json
-{
-    "token": "to8emkheuyj88ivppalh9",
-    "newPassword":"Possw0rd"
-}
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjlmNDlmZDFiYjRjYmZjY2RkNjI3NWIiLCJlbWFpbCI6IjBmNzZlM2FzczEwMTZAZW1haWxiYm94LnBybyIsImlhdCI6MTcyMTcyMjA0NSwiZXhwIjoxNzIxNzI1NjQ1fQ.rOEGUf7l-luxxezbhY7fcdz0Doi-6FBDunPJHj9rwR4
 
 HTTP/1.1 200  - OK
 x-powered-by: Express
 content-type: application/json; charset=utf-8
-content-length: 40
-etag: W/"28-8ys0K1jHAHdhrFRxLt67mzP/mMY"
-date: Sun, 21 Jul 2024 17:14:00 GMT
+content-length: 861
+etag: W/"35d-jyfh3xESMK6EH7IYUlKy1Mfpm08"
+date: Tue, 23 Jul 2024 08:12:11 GMT
 connection: close
