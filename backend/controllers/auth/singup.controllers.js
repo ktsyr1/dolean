@@ -4,13 +4,13 @@ import User from '../../models/User.js'; // Adjust the path as necessary
 
 export default async function signUp(req, res) {
     try {
-        const { username, email, password } = req.body;
+        const { name, email, password , phone} = req.body;
 
         // Check If The Input Fields are Valid
-        if (!username || !password || !email) {
+        if (!name || !password || !email || !phone) {
             return res
                 .status(400)
-                .json({ message: "Please Input Username and Password and email" });
+                .json({ message: "Please Input name and Password and email" });
         }
 
         // Check If User Exists In The Database
@@ -26,8 +26,9 @@ export default async function signUp(req, res) {
 
         // Save The User To The Database
         const newUser = new User({
-            username,
+            name,
             email,
+            phone,
             password: hashedPassword,
         });
 
