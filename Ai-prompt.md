@@ -39,7 +39,7 @@ use create all files in cli for on coment and one line
 ```
 use create all files in cli for on coment and one line
 /api/student
-- /courses get عرض الكورسات
+- /courses get عرض الكورسات  ✨
 - /def-courses - post ارسال اعلانات الدورات الى ادارة الموقع
 - /profile get طلب معلومات الشخصية
 - /profile put تعديل الملف الشخصي
@@ -55,13 +55,13 @@ use create all files in cli for on coment and one line
 - /users get
 - /users/:id get
 - /users/:id delete
-- /users/:id/courses get
 
 - /courses get
-- /courses post
+- /courses post  ✨
 - /courses/:id get عرض الطلاب المتاحين للدورة
 - /courses/:id put
 - /courses/:id delete
+- /courses/:id/users get ✨
 
 - /def-courses get
 - /def-courses/:id get
@@ -82,7 +82,6 @@ _المهام_
 1. تنزيل نسخة أولية من المشروع من GitHub
 2. انشاء برينش باسمكم
 3. تنزيل الحزم باستخدام _npm i_
-
 
 note
 

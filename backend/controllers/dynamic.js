@@ -28,7 +28,7 @@ export default class dynamicControllers {
 
     get = async (req, res) => {
         try {
-            const data = await this.models.findById(req.params.id, '-password')
+            const data = await this.models.findOne({ _id: req.params.id }, '-password')
             if (!data) return res.status(404).json({ message: 'data not found' });
             res.json(data);
         } catch (error) {

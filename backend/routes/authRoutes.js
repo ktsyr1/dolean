@@ -4,6 +4,7 @@ import {signup} from '../controllers/auth/singup.controllers.js';
 import { resetPassword, setNewPassword } from '../controllers/auth/password.controller.js';
 
 const router = express.Router();
+// /api/auth/
 
 router.put('/', login);
 router.post('/', signup);  
