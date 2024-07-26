@@ -7,6 +7,7 @@ import dynamicControllers from '../controllers/dynamic.js';
 // new dynamicControllers(models مثلا User) 
 const userController = new dynamicControllers(User);
 
+
 // حماية api [isLogin, isUser, isAdmin]
 // فقط admin
 app.get('/isAdmin', isAdmin, userController.getAll);

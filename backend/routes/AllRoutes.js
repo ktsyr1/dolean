@@ -7,6 +7,6 @@ const app = express();
 
 app.use('/test', test)
 app.use('/auth', auth); //ok
-app.use('/users', users);
+app.use('/admin/users', users);
 
 export default app;
