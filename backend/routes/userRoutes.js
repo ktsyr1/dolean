@@ -8,12 +8,12 @@ import dynamicControllers from '../controllers/dynamic.js';
 
 const app = express.Router();
 
-const coursesController = new dynamicControllers(Courses);
+const userController = new dynamicControllers(User);
 
 
-app.get('/',isAdmin,coursesController.getAll);
-app.get('/:id',isAdmin,coursesController.get);
-app.delete('/:id',isAdmin,coursesController.remove);
+app.get('/',isAdmin,userController.getAll);
+app.get('/:id',isAdmin,userController.get);
+app.delete('/:id',isAdmin,userController.remove);
 
 
 
