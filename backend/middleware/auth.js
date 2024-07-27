@@ -3,10 +3,9 @@ import User from '../models/User.js';
 
 const initIslogin = async (req, res, next) => {
     const token = req.header('x-auth-token')
-    console.log({token});
     if (!token) return res.status(401).json({ message: 'Access denied. No token provided.' });
 
-    try { 
+    try {
         // token = token.replace("Bearer ","")
         // verify token
         // jwt.verify(token, Secret, options)

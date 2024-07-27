@@ -4,7 +4,7 @@ import User from '../../models/User.js';
 
 export default async function login(req, res) {
     const { email, password } = req.body;
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email});
     if (user && await bcrypt.compare(password, user.password)) {
 
         // new token
