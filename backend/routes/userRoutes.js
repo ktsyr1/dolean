@@ -13,7 +13,7 @@ const coursesController = new dynamicControllers(Courses);
 
 app.get('/',isAdmin,coursesController.getAll);
 app.get('/:id',isAdmin,coursesController.get);
-app.get('/',isAdmin,coursesController.remove);
+app.delete('/:id',isAdmin,coursesController.remove);
 
 
 
