@@ -26,11 +26,11 @@ use create all files in cli for on coment and one line
 ## Auth
 
 ```
-/api
-- /auth/login post تسجيل دخول
-- /auth/signup post تسجيل
-- /auth/reset-password post
-- /auth/new-password post
+/api 👻
+- /auth/login post تسجيل دخول 👻
+- /auth/signup post تسجيل 👻
+- /auth/reset-password post 👻
+- /auth/new-password post 👻
 
 ```
 
@@ -51,10 +51,10 @@ use create all files in cli for on coment and one line
 
 ```
 use create all files in cli for on coment and one line
-/api/admin
-- /users get
-- /users/:id get
-- /users/:id delete
+/api/admin 👻
+- /users get 👻
+- /users/:id get 👻
+- /users/:id delete 👻
 
 - /courses get
 - /courses post  ✨
