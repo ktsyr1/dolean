@@ -5,6 +5,7 @@ import { resetPassword, setNewPassword } from '../controllers/auth/password.cont
 
 const router = express.Router();
 // /api/auth/
+// localhost:5000/api/auth
 
 router.put('/', login);
 router.post('/', signup);  

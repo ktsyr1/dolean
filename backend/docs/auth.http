@@ -19,14 +19,6 @@ Content-Type: application/json
     "name":"qotayba",
     "phone":"70222333"
 }
-
-HTTP/1.1 201  - Created
-x-powered-by: Express
-content-type: application/json; charset=utf-8
-content-length: 226
-etag: W/"e2-L9Klpo+Xk++kLf6canOnYGyR1Jg"
-date: Tue, 23 Jul 2024 06:13:17 GMT
-connection: close
 ###
 PUT http://localhost:5000/api/auth 
 Content-Type: application/json
@@ -35,37 +27,19 @@ Content-Type: application/json
     "email": "0f76e3ass1016@emailbbox.pro",
     "password": "Possw0rd" 
 } 
-
-HTTP/1.1 200  - OK
-x-powered-by: Express
-content-type: application/json; charset=utf-8
-content-length: 254
-etag: W/"fe-hmCqBDuH+Z/MNgFYzUBuRKe0mNQ"
-date: Tue, 23 Jul 2024 08:07:25 GMT
-connection: close
 ###
 POST http://localhost:5000/api/auth/reset-password
 Content-Type: application/json
 {
     "email": "0f76e3assss1016@emailbbox.pro"
 }
-
-HTTP/1.1 200  - OK
-x-powered-by: Express
-content-type: application/json; charset=utf-8
-content-length: 77
-etag: W/"4d-S8DtpRCJL4px1YXW108bD2KrvMc"
-date: Sun, 21 Jul 2024 18:25:30 GMT
-connection: close
 ###
-GET http://localhost:5000/api/isUser?role=user
-Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjlmNDlmZDFiYjRjYmZjY2RkNjI3NWIiLCJlbWFpbCI6IjBmNzZlM2FzczEwMTZAZW1haWxiYm94LnBybyIsImlhdCI6MTcyMTcyMjA0NSwiZXhwIjoxNzIxNzI1NjQ1fQ.rOEGUf7l-luxxezbhY7fcdz0Doi-6FBDunPJHj9rwR4
 
-HTTP/1.1 200  - OK
-x-powered-by: Express
-content-type: application/json; charset=utf-8
-content-length: 861
-etag: W/"35d-jyfh3xESMK6EH7IYUlKy1Mfpm08"
-date: Tue, 23 Jul 2024 08:12:11 GMT
-connection: close
+GET http://localhost:5000/api/test/app
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjlmNDlmZDFiYjRjYmZjY2RkNjI3NWIiLCJlbWFpbCI6IjBmNzZlM2FzczEwMTZAZW1haWxiYm94LnBybyIsImlhdCI6MTcyMTc0NzE5MiwiZXhwIjoxNzIxNzUwNzkyfQ.86fE-AXnymrExBEcWVWvEJiGuGLTdwxafq2NQOEwhkg
+###
+
+GET http://localhost:5000/api/test/Controllers
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjlmNDlmZDFiYjRjYmZjY2RkNjI3NWIiLCJlbWFpbCI6IjBmNzZlM2FzczEwMTZAZW1haWxiYm94LnBybyIsImlhdCI6MTcyMTc0NzE5MiwiZXhwIjoxNzIxNzUwNzkyfQ.86fE-AXnymrExBEcWVWvEJiGuGLTdwxafq2NQOEwhkg
