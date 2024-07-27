@@ -56,17 +56,17 @@ use create all files in cli for on coment and one line
 - /users/:id get 👻
 - /users/:id delete 👻
 
-- /courses get
-- /courses post  ✨
-- /courses/:id get عرض الطلاب المتاحين للدورة
-- /courses/:id put
-- /courses/:id delete
-- /courses/:id/users get ✨
+- /courses get 👻
+- /courses post  ✨ 👻
+- /courses/:id get عرض الطلاب المتاحين للدورة 👻
+- /courses/:id put 👻
+- /courses/:id delete 👻
+- /courses/:id/users get ✨ 
 
-- /def-courses get
-- /def-courses/:id get
-- /def-courses/:id put
-- /def-courses/:id delete
+- /def-courses get 👻
+- /def-courses/:id get  👻
+- /def-courses/:id put 👻
+- /def-courses/:id delete 👻
 ```
 
 ## config
