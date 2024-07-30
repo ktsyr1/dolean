@@ -5,6 +5,7 @@ import { isAdmin, isLogin } from '../middleware/auth.js';
 import Courses from '../models/Courses.js';
 import UserDetails from '../models/UserDetails.js';
 import { getProfile, updateProfile } from '../controllers/profileController.js';
+
 const app = express.Router();
 const CoursesController = new dynamicControllers(Courses)
 const DefCoursesController = new dynamicControllers(DefCourses)
