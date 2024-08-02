@@ -92,4 +92,12 @@ to Controllers & route only
 ```
 
 
-- refreh token 
+Modules
+- User = role: "admin"| "user", name, phone, email, password
+- UserDetails = user_id: <@User.id>, date_create, births<@Courses.age>, nationality, living, interests, scientific_level, data_share:{free, paid} <@Courses.price>
+- Courses = title, context, links, keys, location, age:{start,end}<@UserDetails.births>, nationality:<@UserDetails.nationality>, price:<@UserDetails.free | @UserDetails.paid>
+- Def-courses = title, context, image, ref, location
+pages
+- /users get 👻  delete 👻
+- /courses 👻  put 👻  delete 👻  
+- /def-courses get 👻  put 👻  delete 👻

@@ -1,11 +1,11 @@
-import React from 'react';
-import Layout from '../components/Layout';
+import Login from "../components/forms-client/login";
 
 const Home = () => {
   return (
-    <Layout>
+    <div className="w-full" >
       <h1 className="text-2xl">Home Page</h1>
-    </Layout>
+      <Login />
+    </div>
   );
 };
 
