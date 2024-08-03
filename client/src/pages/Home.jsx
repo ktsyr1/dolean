@@ -1,8 +1,9 @@
 import Portfolio from "../components/cv";
 import Join from "../components/forms-client/join";
 import Login from "../components/forms-client/login";
-import Signup from "../components/forms-client/signup";
+import Signup from "../compone nts/forms-client/signup";
 import PasswordReset from "../components/forms-client/newpassword";
+
 const Home = () => {
   return (
     <div className="w-full" >
@@ -11,6 +12,7 @@ const Home = () => {
       {/* <Join /> */}
       {/* <Portfolio /> */}
       <PasswordReset/>
+      <CoursesPage/>
       {/* <Signup /> */}
     </div>
   );
