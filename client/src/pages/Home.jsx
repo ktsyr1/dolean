@@ -14,7 +14,7 @@ const Home = () => {
       {/* <Portfolio /> */}
       {/* <Signup /> */}
       {/* <ResetPassword/> */}
-      <EditProfile/>
+      {/* <EditProfile/> */}
     </div>
   );
 };
