@@ -5,9 +5,9 @@ const Nav = () => {
         <nav className="p-4 bg-white text-sky-500 flex flex-row justify-between w-full items-center">
             <div className="flex items-center bg-white p-4 pb-2 justify-between w-full">
                 <svg width="31" height="22" viewBox="0 0 31 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2 2.5625H29" stroke="#121417" stroke-width="3.75" stroke-linecap="round" />
-                    <path d="M10.4375 11H29" stroke="#121417" stroke-width="3.75" stroke-linecap="round" />
-                    <path d="M20.5625 19.4375H29" stroke="#121417" stroke-width="3.75" stroke-linecap="round" />
+                    <path d="M2 2.5625H29" stroke="#121417" strokeWidth="3.75" strokeLinecap="round" />
+                    <path d="M10.4375 11H29" stroke="#121417" strokeWidth="3.75" strokeLinecap="round" />
+                    <path d="M20.5625 19.4375H29" stroke="#121417" strokeWidth="3.75" strokeLinecap="round" />
                 </svg>
 
                 <Link to={"/"} className=" ">
