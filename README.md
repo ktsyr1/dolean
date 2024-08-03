@@ -26,4 +26,3 @@ git add .
 git commit -m "Initial commit on new branch"
 git push -u origin <new-branch>
 ```
- 
