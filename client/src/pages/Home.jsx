@@ -1,7 +1,6 @@
-import Portfolio from "../components/cv";
-import Join from "../components/forms-client/join";
-import Login from "../components/forms-client/login";
+
 import Signup from "../components/forms-client/signup";
+import ResetPassword from "../components/forms-client/repassword";
 
 const Home = () => {
   return (
@@ -10,7 +9,8 @@ const Home = () => {
       {/* <Login /> */}
       {/* <Join /> */}
       {/* <Portfolio /> */}
-      <Signup />
+      {/* <Signup /> */}
+      <ResetPassword/>
     </div>
   );
 };
