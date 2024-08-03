@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center" >
+    <div className="w-full flex flex-col justify-center items-center p-4" >
       <h1 className="text-2xl">Home Page</h1>
 
       <Btn to="/auth?route=login" text="تسجيل الدخول" />
+      <Btn to="/apply" text="التسجيل على دورة " />
       <Btn to="/profile" text="تعديل الملف الشخصي" />
       <Btn to="/add-course" text="اضافة كورس" />
     </div>

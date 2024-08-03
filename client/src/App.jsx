@@ -7,6 +7,7 @@ import Courses from './pages/Courses';
 import NotFound from './pages/NotFound'; 
 import Layout from './components/theme/Layout';
 import AddDefCourse from './components/forms-client/defcourse';
+import Join from './components/forms-client/join';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/apply" element={<Join />} />
           <Route path="/add-course" element={<AddDefCourse />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
