@@ -174,9 +174,9 @@ const Join = () => {
                     </div>
                     <div className="space-y-2">
                         <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                            هل تبحث عن دورات مدفوعة؟
+                            {/* هل تبحث عن دورات مدفوعة؟ */}
                         </label>
-                        <p className="text-sm text-muted-foreground">الموافقة على مشاركة اسمك ورقم هاتفك مع الم</p>
+                        <p className="text-sm text-muted-foreground">الموافقة على مشاركة اسمك ورقم هاتفك مع المراكز التعليمية</p>
                         <div className="flex space-x-2 rtl">
                             <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 flex-1">
                                 لا

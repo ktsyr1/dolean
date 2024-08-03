@@ -1,10 +1,7 @@
+import EditProfile from "../components/forms-client/editprofile";
 
 const Profile = () => {
-    return (
-        < >
-            <h1 className="text-2xl">Profile Page</h1>
-        </>
-    );
+    return <EditProfile />
 };
 
 export default Profile;
