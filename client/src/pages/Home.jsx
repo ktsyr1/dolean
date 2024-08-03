@@ -1,6 +1,8 @@
 
 import Signup from "../components/forms-client/signup";
 import ResetPassword from "../components/forms-client/repassword";
+import EditProfile from "../components/forms-client/editprofile";
+
 
 const Home = () => {
   return (
@@ -10,7 +12,8 @@ const Home = () => {
       {/* <Join /> */}
       {/* <Portfolio /> */}
       {/* <Signup /> */}
-      <ResetPassword/>
+      {/* <ResetPassword/> */}
+      <EditProfile/>
     </div>
   );
 };
