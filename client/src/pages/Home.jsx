@@ -7,6 +7,7 @@ import CourseForm from "../components/forms-client/defcourse";
 // import EditProfile from "../components/forms-client/editprofile";
 // import Login from "../components/forms-client/login";
 // import Join from "../components/forms-client/join";
+import PasswordReset from "../components/forms-client/newpassword";
 
 
 const Home = () => {
@@ -16,7 +17,8 @@ const Home = () => {
       {/* <Login /> */}
       {/* <Join /> */}
       {/* <Portfolio /> */}
-      <CourseForm />
+      {/* <CourseForm /> */}
+      <PasswordReset />
       {/* <Signup /> */}
     </div>
   );
