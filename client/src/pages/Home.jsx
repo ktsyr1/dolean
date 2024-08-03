@@ -2,7 +2,7 @@ import Portfolio from "../components/cv";
 import Join from "../components/forms-client/join";
 import Login from "../components/forms-client/login";
 import Signup from "../components/forms-client/signup";
-
+import PasswordReset from "../components/forms-client/newpassword";
 const Home = () => {
   return (
     <div className="w-full" >
@@ -10,7 +10,8 @@ const Home = () => {
       {/* <Login /> */}
       {/* <Join /> */}
       {/* <Portfolio /> */}
-      <Signup />
+      <PasswordReset/>
+      {/* <Signup /> */}
     </div>
   );
 };
