@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
+import Hero from "../components/Hero";
+import Coureslist from "../components/coureslist";
 
 const Home = () => {
   return (
     <div className="w-full flex flex-col justify-center items-center p-4" >
-      <h1 className="text-2xl">Home Page</h1>
+      <Hero/>
+      <Coureslist/>
 
       <Btn to="/auth?route=login" text="تسجيل الدخول" />
       <Btn to="/apply" text="التسجيل على دورة " />
