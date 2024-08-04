@@ -11,10 +11,7 @@ const Join = () => {
                 <section className="space-y-4">
                     <h3 className="text-lg font-bold">المعلومات الأساسية</h3>
                     <div className="space-y-2">
-                        <label
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                            htmlFor="birth-year"
-                        >
+                        <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="birth-year"                        >
                             سنة الميلاد
                         </label>
                         <input
@@ -24,31 +21,37 @@ const Join = () => {
                         />
                     </div>
                     <div className="space-y-2">
-                        <label
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                            htmlFor="gender"
-                        >
+                        <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="nationality">
                             الجنسية
                         </label>
-                        <input
-                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            id="gender"
-                            placeholder="حدد الجنسية"
-                        />
+                        <select id="nationality" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected="">حدد الجنسية</option>
+                            <option value="Lebanese">لبناني</option>
+                            <option value="Palestinian">فلسطيني</option>
+                            <option value="Syrian">سوري</option>
+                            <option value="Other">غير ذلك</option>
+                        </select>
                     </div>
+
+
                     <div className="space-y-2">
-                        <label
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                            htmlFor="current-location"
-                        >
+                        <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="current-residence">
                             مكان السكن الحالي
                         </label>
-                        <input
-                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            id="current-location"
-                            placeholder="حدد المحافظة"
-                        />
+                        <select id="current-residence" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected="">حدد المحافظة</option>
+                            <option value="Beirut">بيروت</option>
+                            <option value="Mount Lebanon">جبل لبنان</option>
+                            <option value="North Lebanon">لبنان الشمالي</option>
+                            <option value="South Lebanon">لبنان الجنوبي</option>
+                            <option value="Central Beqaa">البقاع الأوسط</option>
+                            <option value="West Beqaa">البقاع الغربي</option>
+                            <option value="Nabatieh">النبطية</option>
+                            <option value="Baalbek-Hermel">بعلبك الهرمل</option>
+                            <option value="Akkar">عكار</option>
+                        </select>
                     </div>
+
                     <div className="space-y-2">
                         <label
                             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -79,18 +82,21 @@ const Join = () => {
                 <section className="space-y-4">
                     <h3 className="text-lg font-bold">التعليم</h3>
                     <div className="space-y-2">
-                        <label
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                            htmlFor="education-level"
-                        >
+                        <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="education-level">
                             المستوى التعليمي
                         </label>
-                        <input
-                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            id="education-level"
-                            placeholder="حدد المستوى"
-                        />
+                        <select id="education-level" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <option selected="">حدد المستوى التعليمي</option>
+                            <option value="Primary">ابتدائي</option>
+                            <option value="Intermediate">متوسط</option>
+                            <option value="Secondary">ثانوي</option>
+                            <option value="Bachelors">بكالوريوس</option>
+                            <option value="Masters">ماجستير</option>
+                            <option value="PhD">دكتوراه</option>
+                            <option value="Other">غير ذلك</option>
+                        </select>
                     </div>
+
                     <div className="space-y-2">
                         <label
                             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -191,7 +197,7 @@ const Join = () => {
                     تسجيل الطلب
                 </button>
             </main>
-        </div>
+        </div >
     );
 };
 
