@@ -48,7 +48,7 @@ export default CoursesList;
 
 function Card({ image, title, center, link }) {
     return (
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full max-w-sm bg-white   border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href={link}>
                 <img className="p-8 rounded-t-lg" src={image} alt="product image" />
             </a>

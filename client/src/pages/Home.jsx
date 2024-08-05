@@ -7,10 +7,8 @@ const Home = () => {
     <div className="w-full flex flex-col justify-center items-center p-4" >
       <Hero/>
       <Coureslist/>
-
-      <Btn to="/auth?route=login" text="تسجيل الدخول" />
-      <Btn to="/apply" text="التسجيل على دورة " />
-      <Btn to="/profile" text="تعديل الملف الشخصي" />
+ 
+      {/* <Btn to="/profile" text="تعديل الملف الشخصي" /> */}
       <Btn to="/add-course" text="اضافة كورس" />
     </div>
   );
