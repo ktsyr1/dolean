@@ -1,9 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useForm } from 'react-hook-form';
+import config from '../../config';
+import axios from "axios"
 const Login = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit = data => {
+        let url = `${config.api}/auth`
+        axios.put(url, data)
+            .then((data) => console.log(data))
+        // يمكنك هنا إضافة منطق تسجيل الدخول الخاص بك
+    };
+
     return (
-        <form className="space-y-4 md:space-y-6" action="#">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:space-y-6" action="#">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
                 تسجيل دخول
             </h1>
@@ -15,8 +26,9 @@ const Login = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
-                    required
+                    {...register('email', { required: 'البريد الإلكتروني مطلوب' })}
                 />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
             </div>
             <div>
                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">كلمة المرور</label>
@@ -26,9 +38,10 @@ const Login = () => {
                     id="password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required
+                    {...register('password', { required: 'كلمة المرور مطلوبة' })}
                 />
-                <Link to="?route=resetpassword" className="text-sm text-primary-600 hover:underline  my-4 dark:text-primary-500 text-left w-full flex justify-end">هل نسيت كلمة المرور؟</Link>
+                {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
+                <Link to="?route=resetpassword" className="text-sm text-primary-600 hover:underline my-4 dark:text-primary-500 text-left w-full flex justify-end">هل نسيت كلمة المرور؟</Link>
             </div>
             <button
                 type="submit"

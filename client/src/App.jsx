@@ -4,7 +4,7 @@ import Admin from './pages/Admin';
 import AuthPage from './pages/Auth';
 import Profile from './pages/Profile';
 import Courses from './pages/Courses';
-import NotFound from './pages/NotFound'; 
+import NotFound from './pages/NotFound';
 import Layout from './components/theme/Layout';
 import AddDefCourse from './components/forms-client/defcourse';
 import Join from './components/forms-client/join';

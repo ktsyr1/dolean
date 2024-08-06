@@ -1,5 +1,5 @@
 const config = {
-    api: import.meta,
+    api: "https://courses-lb-api.vercel.app/api",
 };
 
 export default config;

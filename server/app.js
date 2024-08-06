@@ -4,7 +4,10 @@ import dotenv from 'dotenv';
 import AllAPI from "./routes/AllRoutes.js"
 dotenv.config();
 
+import cors from 'cors'
 const app = express();
+app.use(cors()); // السماح بكل الأصول
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
@@ -12,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI)
     .catch(err => console.log(err));
 
 app.use('/api', AllAPI);
-app.get("/",(req,res)=> res.send("start api"))
+app.get("/", (req, res) => res.send("start api"))
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
