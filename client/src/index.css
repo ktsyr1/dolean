@@ -1,4 +1,3 @@
-
 /* src/index.css */
 @tailwind base;
 @tailwind components;
@@ -18,4 +17,70 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
- 
+
+@font-face {
+  font-family: 'LamaSans';
+  src: url('/fonts/ArbFONTS-LamaSans-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LamaSans';
+  src: url('/fonts/ArbFONTS-LamaSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LamaSans';
+  src: url('/fonts/ArbFONTS-LamaSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LamaSans';
+  src: url('/fonts/ArbFONTS-LamaSans-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LamaSans';
+  src: url('/fonts/ArbFONTS-LamaSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LamaSans';
+  src: url('/fonts/ArbFONTS-LamaSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LamaSans';
+  src: url('/fonts/ArbFONTS-LamaSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LamaSans';
+  src: url('/fonts/ArbFONTS-LamaSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LamaSans';
+  src: url('/fonts/ArbFONTS-LamaSans-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+body {
+  font-family: 'LamaSans', sans-serif;
+}
