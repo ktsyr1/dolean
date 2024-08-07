@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
-import Hero from "../components/Hero";
-import Coureslist from "../components/coureslist";
-import FormTest from "../components/forms-client/test";
+import Hero from "../components/landing/Hero";
+import Coureslist from "../components/landing/coureslist";
 
 const Home = () => {
     return (
-        <div className="w-full flex flex-col justify-center items-center p-4 *:bg-slate-300 *:p-4" >
+        <div className="w-full flex flex-col justify-center items-center p-4  " >
             <Hero />
             <Coureslist />
-            {/* <FormTest /> */}
             <Btn to="/add-course" text="اضافة كورس" />
         </div>
     );

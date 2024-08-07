@@ -1,15 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import config from '../../config';
 import axios from "axios"
+import Cookies from "js-cookie"
 const Login = () => {
+    let route = useLocation()
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         let url = `${config.api}/auth`
         axios.put(url, data)
-            .then((data) => console.log(data))
+            .then((data) => {
+                Cookies.set('x-auth-token', data.data?.token, { expires: 1 })
+                console.log(data)
+                location.replace("/")
+            })
         // يمكنك هنا إضافة منطق تسجيل الدخول الخاص بك
     };
 
@@ -19,7 +25,7 @@ const Login = () => {
                 تسجيل دخول
             </h1>
             <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">البريد الإلكتروني</label>
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">البريد الإلكتروني<span className="text-red-500">*</span></label>
                 <input
                     type="email"
                     name="email"
@@ -31,7 +37,7 @@ const Login = () => {
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
             </div>
             <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">كلمة المرور</label>
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">كلمة المرور<span className="text-red-500">*</span></label>
                 <input
                     type="password"
                     name="password"

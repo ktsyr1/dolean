@@ -12,7 +12,7 @@ export default async function login(req, res) {
         const token = jwt.sign(
             { userId: user._id, email: user.email }, // payload
             process.env.JWT_SECRET, // Secret
-            { expiresIn: '1h' } // options
+            { expiresIn: "24h" } // options
         );
 
         res.cookie('x-auth-token', token, {

@@ -16,7 +16,7 @@ const Signup = () => {
                 تسجيل
             </h1>
             <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">الاسم</label>
+                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">الاسم<span className="text-red-500">*</span></label>
                 <input
                     type="text"
                     name="name"
@@ -28,7 +28,7 @@ const Signup = () => {
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
             </div>
             <div>
-                <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">رقم الهاتف</label>
+                <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">رقم الهاتف<span className="text-red-500">*</span></label>
                 <input
                     type="tel"
                     name="phone"
@@ -40,7 +40,7 @@ const Signup = () => {
                 {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
             </div>
             <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">البريد الإلكتروني</label>
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">البريد الإلكتروني<span className="text-red-500">*</span></label>
                 <input
                     type="email"
                     name="email"
@@ -52,7 +52,7 @@ const Signup = () => {
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
             </div>
             <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">كلمة المرور</label>
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">كلمة المرور<span className="text-red-500">*</span></label>
                 <input
                     type="password"
                     name="password"
@@ -64,7 +64,7 @@ const Signup = () => {
                 {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
             </div>
             <div>
-                <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تأكيد كلمة المرور</label>
+                <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تأكيد كلمة المرور<span className="text-red-500">*</span></label>
                 <input
                     type="password"
                     name="confirm-password"
@@ -75,20 +75,20 @@ const Signup = () => {
                 />
                 {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword.message}</p>}
             </div>
-            <div className="flex items-start">
+            <div className="flex items-start flex-col">
                 <div className="flex items-center h-5">
                     <input
                         id="terms"
                         aria-describedby="terms"
                         type="checkbox"
-                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                        className="w-4 mx-2 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
                         {...register('terms', { required: 'يجب الموافقة على الشروط والأحكام' })}
                     />
+                    <div className="ml-3 text-sm">
+                        <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">أوافق على <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500" to="#">الشروط والأحكام</Link></label>
+                    </div>
+                    {errors.terms && <p className="text-red-500 text-sm mt-1">{errors.terms.message}</p>}
                 </div>
-                <div className="ml-3 text-sm">
-                    <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">أوافق على <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500" to="#">الشروط والأحكام</Link></label>
-                </div>
-                {errors.terms && <p className="text-red-500 text-sm mt-1">{errors.terms.message}</p>}
             </div>
             <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">إنشاء حساب</button>
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
