@@ -5,10 +5,10 @@ const Layout = ({ children }) => {
     return (
         <div className="flex flex-col min-h-screen bg-white *:text-slate-900">
             <Nav />
-            <main className="flex-grow justify-center flex ">
+            <main className="flex-grow justify-center flex max-w-[1300px] m-auto">
                 {children}
             </main>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     );
 };

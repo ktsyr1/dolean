@@ -3,6 +3,11 @@ import Hero from "../components/landing/Hero";
 import Coureslist from "../components/landing/coureslist";
 
 const Home = () => {
+    let a1 = () => {
+        return { a: 1212 }
+    }
+    let a2 = () => ({ a: 1212 })
+    console.log(a2());
     return (
         <div className="w-full flex flex-col justify-center items-center p-4  " >
             <Hero />
