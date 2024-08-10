@@ -1,15 +1,23 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const AddDefCourse = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit = (data) => {
+        // هنا يمكنك إضافة منطق لإضافة الدورة
+        console.log(data);
+    };
+
     return (
         <section className="bg-gray-50 dark:bg-gray-900 w-full">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                        <form className="space-y-4 md:space-y-6" action="#">
-                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
-                        إضافة دورة
-                        </h1>
+                        <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(onSubmit)}>
+                            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
+                                إضافة دورة
+                            </h1>
                             <div>
                                 <label htmlFor="course-title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     عنوان الدورة <span className="text-red-500">*</span>
@@ -20,8 +28,9 @@ const AddDefCourse = () => {
                                     id="course-title" 
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                                     placeholder="أدخل عنوان الدورة" 
-                                    required 
+                                    {...register('course-title', { required: 'عنوان الدورة مطلوب' })} 
                                 />
+                                {errors['course-title'] && <p className="text-sm text-red-600">{errors['course-title'].message}</p>}
                             </div>
                             <div>
                                 <label htmlFor="course-description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -33,20 +42,22 @@ const AddDefCourse = () => {
                                     rows="4"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                                     placeholder="أدخل كامل إعلان الدورة" 
-                                    required
+                                    {...register('course-description', { required: 'إعلان الدورة مطلوب' })}
                                 ></textarea>
+                                {errors['course-description'] && <p className="text-sm text-red-600">{errors['course-description'].message}</p>}
                             </div>
                             <div>
                                 <label htmlFor="course-image" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    إعلان الدورة كصورة 
+                                    إعلان الدورة كصورة
                                 </label>
                                 <input 
                                     type="file" 
                                     name="course-image" 
                                     id="course-image" 
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                                    required
+                                    
                                 />
+                                
                             </div>
                             <button 
                                 type="submit" 
