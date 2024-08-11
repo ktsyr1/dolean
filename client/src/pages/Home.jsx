@@ -12,9 +12,9 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('YOUR_API_ENDPOINT_HERE');
-                setData(response.data);
-                setLoading(false);
+                // const response = await axios.get('YOUR_API_ENDPOINT_HERE');
+                // setData(response.data);
+                // setLoading(false);
             } catch (err) {
                 setError(err);
                 setLoading(false);
