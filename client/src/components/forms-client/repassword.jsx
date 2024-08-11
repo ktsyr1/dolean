@@ -12,7 +12,7 @@ const ResetPassword = () => {
     const onSubmit = async (data) => {
         try {
             // Replace with your actual API endpoint
-            const url = `${config.api}/Auth`;
+            const url = `${config.api}/reset-password`;
             await axios.get(url, { email: data.email });
             setMessage('تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني.');
         } catch (error) {
@@ -51,7 +51,7 @@ const ResetPassword = () => {
             </button>
             {message && <p className="text-sm text-green-600">{message}</p>}
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                هل لديك حساب؟ <Link to="/login" className="font-medium text-primary-600 hover:underline dark:text-primary-500">تسجيل الدخول</Link>
+                هل لديك حساب؟ <Link to="?route=login" className="font-medium text-primary-600 hover:underline dark:text-primary-500">تسجيل الدخول</Link>
             </p>
         </form>
     );

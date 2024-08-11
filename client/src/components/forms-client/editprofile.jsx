@@ -12,7 +12,7 @@ const EditProfile = () => {
     const onSubmit = async (data) => {
         try {
             // Replace with your actual API endpoint
-            const url = `${config.api}/update-profile`;
+            const url = `${config.api}/profile`;
             await axios.put(url, data);
             setMessage('تم تحديث الملف الشخصي بنجاح.');
         } catch (error) {
