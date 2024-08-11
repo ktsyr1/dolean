@@ -8,7 +8,6 @@ const Preferences = () => {
     return (
         <div>
             <h3 className="text-lg font-bold">طريقة الاقتراحات</h3>
-            {/* قائمة الدورات التي تحتاجها */}
             <div className="space-y-2">
                 <label className="text-sm font-medium leading-none">هل تبحث عن دورات مجانية؟</label>
                 <div className="flex space-x-2 rtl">
