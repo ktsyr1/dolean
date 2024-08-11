@@ -2,36 +2,41 @@ import React from 'react';
 import ToggleButton from '../../Element/ToggleButton';
 import { useFormContext } from 'react-hook-form';
 
+const PreferenceField = ({ label, name, register, errors }) => (
+    <div className="space-y-2 my-4">
+        <label className="text-sm font-medium leading-none">{label}</label>
+        <div className="flex space-x-2 rtl">
+            <ToggleButton name={name} value="No" register={register}>لا</ToggleButton>
+            <ToggleButton name={name} value="Yes" register={register}>نعم</ToggleButton>
+        </div>
+        {errors[name] && <span className="text-red-500 text-sm">{errors[name].message}</span>}
+    </div>
+);
+
 const Preferences = () => {
-    const { register, formState: { errors } } = useFormContext() // retrieve all hook methods
+    const { register, formState: { errors } } = useFormContext();
 
     return (
         <div>
             <h3 className="text-lg font-bold">طريقة الاقتراحات</h3>
-            <div className="space-y-2">
-                <label className="text-sm font-medium leading-none">هل تبحث عن دورات مجانية؟</label>
-                <div className="flex space-x-2 rtl">
-                    <ToggleButton name="freeCourses" value="No" register={register}>لا</ToggleButton>
-                    <ToggleButton name="freeCourses" value="Yes" register={register}>نعم</ToggleButton>
-                </div>
-                {errors.freeCourses && <span className="text-red-500 text-sm">{errors.freeCourses.message}</span>}
-            </div>
-            <div className="space-y-2">
-                <label className="text-sm font-medium leading-none">هل تبحث عن دورات مدفوعة؟</label>
-                <div className="flex space-x-2 rtl">
-                    <ToggleButton name="paidCourses" value="No" register={register}>لا</ToggleButton>
-                    <ToggleButton name="paidCourses" value="Yes" register={register}>نعم</ToggleButton>
-                </div>
-                {errors.paidCourses && <span className="text-red-500 text-sm">{errors.paidCourses.message}</span>}
-            </div>
-            <div className="space-y-2">
-                <label className="text-sm font-medium leading-none">الموافقة على مشاركة اسمك ورقم هاتفك مع المراكز التعليمية</label>
-                <div className="flex space-x-2 rtl">
-                    <ToggleButton name="shareInfo" value="No" register={register}>لا</ToggleButton>
-                    <ToggleButton name="shareInfo" value="Yes" register={register}>نعم</ToggleButton>
-                </div>
-                {errors.shareInfo && <span className="text-red-500 text-sm">{errors.shareInfo.message}</span>}
-            </div>
+            <PreferenceField
+                label="هل تبحث عن دورات مجانية؟"
+                name="freeCourses"
+                register={register}
+                errors={errors}
+            />
+            <PreferenceField
+                label="هل تبحث عن دورات مدفوعة؟"
+                name="paidCourses"
+                register={register}
+                errors={errors}
+            />
+            <PreferenceField
+                label="الموافقة على مشاركة اسمك ورقم هاتفك مع المراكز التعليمية"
+                name="shareInfo"
+                register={register}
+                errors={errors}
+            />
         </div>
     );
 };

@@ -9,9 +9,14 @@ import { useState } from 'react';
 const Join = () => {
     const methods = useForm();
     const { register, handleSubmit, formState: { errors } } = methods;
-    const [step, setStep] = useState(0);
+    const [step, setStep] = useState(2);
 
-    const steps = [<BasicInfo />, <Education />, <Preferences />, <StaticInfo />];
+    const steps = [
+        <BasicInfo />,
+        <Education />,
+        <Preferences />,
+        <StaticInfo />
+    ]
 
     const onSubmit = (data) => {
         console.log(data);

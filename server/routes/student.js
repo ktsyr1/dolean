@@ -11,9 +11,9 @@ const CoursesController = new dynamicControllers(Courses)
 const DefCoursesController = new dynamicControllers(DefCourses)
 const UserDetailsController = new dynamicControllers(UserDetails)
 
-app.get('/', isAdmin, CoursesController.getAll)
-app.post('/def-courses', isAdmin, DefCoursesController.create)
-app.post('/details', isAdmin, UserDetailsController.create)
+app.get('/', CoursesController.getAll)
+app.post('/def-courses', DefCoursesController.create)
+app.post('/details', UserDetailsController.create)
 
 
 app.get('/profile', isLogin, getProfile);
