@@ -6,6 +6,7 @@ let Coursecard = () => {
       <main>
         <h2 class="text-center text-2xl font-bold mb-4">الدورات الحديثة</h2>
        <Card />
+       
        <Card />
        <Card />
        <Card />

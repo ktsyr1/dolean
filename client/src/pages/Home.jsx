@@ -10,11 +10,12 @@ const Home = () => {
     <div className="w-full" >
       <h1 className="text-2xl">Home Page</h1>
       {/* <Login /> */}
-      {/* <Join /> */}
+      <Join />
       {/* <Portfolio /> */}
       {/* <PasswordReset/> */}
-      <Coursecard/>
+      {/* <Coursecard/> */}
       {/* <Signup /> */}
+      <courseDetailsection />
     </div>
   );
 };
