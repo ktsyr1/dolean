@@ -6,12 +6,14 @@ const UserDetailsSchema = new mongoose.Schema({
     // phone
     // fullname
     births: Number,
-    nationality: String,
     Governorate: String,
     city: String,
+    nationality: String,
+
+    scientific_level: { type: String, enum: ['Primary', 'Intermediate', 'Secondary', 'Bachelors', 'Masters', 'PhD', 'Diploma', 'Institute', 'Other'], required: true },
+
     noteInterests: String,
     interests: [String],
-    scientific_level: String,
     data_share: {
         free: Boolean,
         paid: Boolean

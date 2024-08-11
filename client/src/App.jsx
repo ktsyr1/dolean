@@ -7,7 +7,7 @@ import Courses from './pages/Courses';
 import NotFound from './pages/NotFound';
 import Layout from './components/theme/Layout';
 import AddDefCourse from './components/forms-client/defcourse';
-import Join from './components/forms-client/join';
+import Join from './components/forms-client/join/form';
 
 function App() {
   return (
