@@ -1,13 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useLocation} from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import config from '../../config';
 
 const Signup = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    let route = useLocation()
+    const { register, handleSubmit, formState: { errors }, watch } = useForm();
+    const [message, setMessage] = React.useState('');
 
-    const onSubmit = data => {
-        console.log(data);
-        // يمكنك هنا إضافة منطق إنشاء الحساب الخاص بك
+    const onSubmit = async (data) => {
+        try {
+            // استبدل هذا بعنوان API الفعلي الخاص بك
+            const url = `${config.api}/Auth`;
+            await axios.post(url, data);
+            setMessage('تم إنشاء حسابك بنجاح.');
+        } catch (error) {
+            console.error('حدث خطأ أثناء إنشاء الحساب:', error);
+            setMessage('حدث خطأ أثناء إنشاء الحساب. يرجى المحاولة مرة أخرى.');
+        }
+    };
+
+    // التحقق من تطابق كلمات المرور
+    const validatePassword = (value) => {
+        if (value !== watch('password')) {
+            return 'كلمات المرور غير متطابقة';
+        }
+        return true;
     };
 
     return (
@@ -47,7 +66,13 @@ const Signup = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
-                    {...register('email', { required: 'البريد الإلكتروني مطلوب' })}
+                    {...register('email', { 
+                        required: 'البريد الإلكتروني مطلوب',
+                        pattern: {
+                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                            message: 'البريد الإلكتروني غير صالح'
+                        }
+                    })}
                 />
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
             </div>
@@ -71,7 +96,10 @@ const Signup = () => {
                     id="confirm-password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    {...register('confirmPassword', { required: 'تأكيد كلمة المرور مطلوب' })}
+                    {...register('confirmPassword', { 
+                        required: 'تأكيد كلمة المرور مطلوب',
+                        validate: validatePassword
+                    })}
                 />
                 {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword.message}</p>}
             </div>
@@ -94,6 +122,7 @@ const Signup = () => {
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 لديك حساب بالفعل؟ <Link to="?route=login" className="font-medium text-primary-600 hover:underline dark:text-primary-500">تسجيل الدخول</Link>
             </p>
+            {message && <p className="text-green-600 text-center mt-4">{message}</p>}
         </form>
     );
 };

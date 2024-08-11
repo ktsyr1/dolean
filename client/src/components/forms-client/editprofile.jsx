@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import config from '../../config';
+import {  useLocation } from 'react-router-dom';
 
-let EditProfile = () => {
+const EditProfile = () => {
+    let route = useLocation()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [message, setMessage] = useState('');
 
-    const onSubmit = (data) => {
-        // Log the form data to the console
-        console.log('Form data:', data);
-        // هنا يمكنك إضافة منطق تحديث الملف الشخصي
-        setMessage('تم تحديث الملف الشخصي بنجاح.');
+    const onSubmit = async (data) => {
+        try {
+            // Replace with your actual API endpoint
+            const url = `${config.api}/update-profile`;
+            await axios.put(url, data);
+            setMessage('تم تحديث الملف الشخصي بنجاح.');
+        } catch (error) {
+            console.error('هناك خطأ في تحديث الملف الشخصي:', error);
+            setMessage('حدث خطأ أثناء تحديث الملف الشخصي. يرجى المحاولة مرة أخرى.');
+        }
     };
 
     return (
