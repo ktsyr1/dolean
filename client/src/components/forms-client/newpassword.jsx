@@ -1,4 +1,12 @@
+import { useForm } from 'react-hook-form';
+
 const NewPassword = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = (data) => {
+        // هنا يمكنك إضافة منطق لتعيين كلمة المرور الجديدة
+        console.log(data);
+    };
+
     return (
         <section className="bg-gray-50 dark:bg-gray-900">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -7,7 +15,7 @@ const NewPassword = () => {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
                             تعيين كلمة مرور جديدة
                         </h1>
-                        <form className="space-y-4 md:space-y-6" action="#" method="POST">
+                        <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(onSubmit)}>
                             <div>
                                 <label htmlFor="new-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">كلمة المرور الجديدة</label>
                                 <input
@@ -16,8 +24,9 @@ const NewPassword = () => {
                                     id="new-password"
                                     placeholder="••••••••"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    required
+                                    {...register('new-password', { required: 'كلمة المرور الجديدة مطلوبة' })}
                                 />
+                                {errors['new-password'] && <p className="text-sm text-red-600">{errors['new-password'].message}</p>}
                             </div>
                             <div>
                                 <label htmlFor="confirm-new-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تأكيد كلمة المرور الجديدة</label>
@@ -27,8 +36,12 @@ const NewPassword = () => {
                                     id="confirm-new-password"
                                     placeholder="••••••••"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    required
+                                    {...register('confirm-new-password', {
+                                        required: 'تأكيد كلمة المرور الجديدة مطلوب',
+                                        validate: value => value === watch('new-password') || 'كلمة المرور لا تتطابق'
+                                    })}
                                 />
+                                {errors['confirm-new-password'] && <p className="text-sm text-red-600">{errors['confirm-new-password'].message}</p>}
                             </div>
                             <button
                                 type="submit"
