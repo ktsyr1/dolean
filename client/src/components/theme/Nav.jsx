@@ -1,14 +1,16 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-
+import Cookies from "js-cookie"
 const Nav = () => {
     let menu = useRef()
+    let close = () => menu.current.classList.toggle("hidden")
+    let islogin = Cookies.get("x-auth-token")
     return (
-        <nav className="bg-white dark:bg-gray-800 antialiased">
+        <nav className="bg-white dark:bg-gray-800 antialiased fixed w-full">
             <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
                 <div className="flex items-center justify-between">
 
-                    <button type="button" className="inline-flex lg:hidden items-center justify-center hover:bg-gray-100 rounded-md dark:hover:bg-gray-700 p-2 text-gray-900 dark:text-white" onClick={() => ""}>
+                    <button type="button" className="inline-flex lg:hidden items-center justify-center hover:bg-gray-100 rounded-md dark:hover:bg-gray-700 p-2 text-gray-900 dark:text-white" onClick={close}>
                         <span className="sr-only">Open Menu</span>
                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h14" />
@@ -34,25 +36,40 @@ const Nav = () => {
                             {MenuData.map((link, index) => <ItemMenu key={index} data={link} />)}
                         </ul>
                     </div>
-                    <Link to="/apply" className="inline-flex mx-4 justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"> اخبرنا عنك </Link>
+                    <div className='flex flex-row justify-center items-center'>
+                        <CastamLink to="/apply" classnames="mx-4 " text="اخبرنا عنك" />
+                        <Link to={islogin ? "/profile" : "/auth?route=login"} classnames="mx-6 " text="الملف الشخصي" >
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width={40}>
+                                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <circle cx="12" cy="6" r="4" stroke="#1C274C" strokeWidth="1.5"></circle>
+                                    <path d="M19.9975 18C20 17.8358 20 17.669 20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C14.231 22 15.8398 21.8433 17 21.5634" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"></path>
+                                </g></svg>
+                        </Link>
+                    </div>
 
                 </div>
 
-                <div id="menu-app" className="bg-gray-50 dark:bg-gray-700 dark:border-gray-600 border border-gray-200 rounded-lg py-3 hidden px-4 mt-4" ref={menu}>
-                    <ul className="text-gray-900 text-sm font-medium dark:text-white space-y-3">
+                <div id="menu-app" className="bg-gray-50 fixed w-[300px] dark:bg-gray-700 dark:border-gray-600 border border-gray-200 rounded-lg py-3 hidden lg:hidden px-4 mt-4" ref={menu} onClick={close}  >
+                    <ul className="text-gray-900 text-sm font-medium dark:text-white space-y-3 *:py-2">
                         {MenuData.map((link, index) => <ItemMenu key={index} data={link} />)}
                     </ul>
-                    <Link to="/apply" className="inline-flex mx-4 justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"> اخبرنا عنك </Link>
+                    <CastamLink to="/apply" classnames="my-4 w-full " text="اخبرنا عنك" />
+
                 </div>
             </div>
         </nav>
     );
 };
 
-export function ItemMenu({ data }) {
+let CastamLink = (props) => (
+    <Link className={`inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 ${props.classnames}`} {...props}> {props.text} </Link>
+)
+export function ItemMenu({ data, className }) {
     return (
         <li>
-            <Link to={data.href} className="hover:text-primary-700 font-medium dark:hover:text-primary-500">
+            <Link to={data.href} className={`hover:text-primary-700 font-medium dark:hover:text-primary-500 ${className}`}>
                 {data.text}
             </Link>
         </li>

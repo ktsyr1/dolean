@@ -57,6 +57,18 @@ const Education = () => {
                     errors={errors}
                 />
             )}
+            {selectedOption?.isClass && (
+                <FormField
+                    label="الصف الدراسي"
+                    name="classes"
+                    register={register}
+                    validation={{
+                        required: "الصف الدراسي مطلوبة", 
+                    }}
+                    placeholder="الخامس"
+                    errors={errors}
+                />
+            )}
             {selectedOption?.graduationYear && (
                 <FormField
                     label="سنة التخرج"

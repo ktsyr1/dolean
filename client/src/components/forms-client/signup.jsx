@@ -12,7 +12,7 @@ const Signup = () => {
     const onSubmit = async (data) => {
         try {
             // استبدل هذا بعنوان API الفعلي الخاص بك
-            const url = `${config.api}/Auth`;
+            const url = `${config.api}/auth`;
             await axios.post(url, data);
             setMessage('تم إنشاء حسابك بنجاح.');
         } catch (error) {

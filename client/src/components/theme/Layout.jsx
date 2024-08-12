@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
         <div className="flex flex-col min-h-screen bg-white *:text-slate-900">
             <Nav />
             <Analytics />
-            <main className="flex-grow justify-center flex max-w-[1300px] m-auto w-full">
+            <main className="flex-grow justify-center flex max-w-[1300px] mt-[100px] m-auto w-full">
                 {children}
             </main>
             <Footer />

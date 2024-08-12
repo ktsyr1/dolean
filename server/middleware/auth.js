@@ -10,10 +10,8 @@ const initIslogin = async (req, res, next) => {
         // verify token
         // jwt.verify(token, Secret, options)
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
-        console.log(decoded);
         // end
         let user = await User.findOne({ _id: decoded.userId }, 'email role')
-        console.log(user);
         req.user = decoded;
         return user
     } catch (error) {

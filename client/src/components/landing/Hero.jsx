@@ -20,7 +20,7 @@ let Hero = () => {
                     {!islogin && <Link to="/auth?route=login" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center bg-white border border-primary-700 rounded-lg text-primary-700 hover:text-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"> تسجيل دخول </Link>}
                 </div>
             </div>
-            <img src="\images\user-hero.webp" alt="hero image" className="max-w-[400px] max-h-[400px] rounded-lg my-4" />
+            <img src="\images\user-hero.webp" alt="hero image" className="max-w-[400px] w-[80%] max-h-[400px] rounded-lg my-4" />
         </section>
 
     )
