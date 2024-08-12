@@ -28,7 +28,7 @@ export const resetPassword = async (req, res) => {
             });
 
             const resetUrl = `${process.env.APP}/auth?route=newPassword&token=${encodeURIComponent(user.resetPasswordToken)}`;
-
+            console.log(resetUrl);
             const content = `
                 <center>
                     <b>نسيت كلمة السر</b><br/>
