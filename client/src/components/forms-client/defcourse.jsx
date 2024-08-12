@@ -1,75 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import FormField from '../Element/FormField'; // افترض أن FormField موجودة في هذا المسار
+import config from '../../config';
+import axios from 'axios';
 
 const AddDefCourse = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-
-    const onSubmit = (data) => {
-        // هنا يمكنك إضافة منطق لإضافة الدورة
-        console.log(data);
+    const [message, setMessage] = useState('');
+    const onSubmit = async (res) => {
+        try {
+            const url = `${config.api}/student/def-courses`;
+            const { data } = await axios.post(url, res);
+            setMessage();
+        } catch (error) {
+            console.error('Error updating profile:', error);
+            setMessage({ message: 'حدث خطأ أثناء تحديث الملف الشخصي. يرجى المحاولة مرة أخرى.', type: 'error' });
+        }
     };
-
     return (
-        <section className="bg-gray-50 dark:bg-gray-900 w-full">
-            <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-                    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                        <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(onSubmit)}>
-                            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
-                                إضافة دورة
-                            </h1>
-                            <div>
-                                <label htmlFor="course-title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    عنوان الدورة <span className="text-red-500">*</span>
-                                </label>
-                                <input 
-                                    type="text" 
-                                    name="course-title" 
-                                    id="course-title" 
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                                    placeholder="أدخل عنوان الدورة" 
-                                    {...register('course-title', { required: 'عنوان الدورة مطلوب' })} 
-                                />
-                                {errors['course-title'] && <p className="text-sm text-red-600">{errors['course-title'].message}</p>}
-                            </div>
-                            <div>
-                                <label htmlFor="course-description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    كامل إعلان الدورة <span className="text-red-500">*</span>
-                                </label>
-                                <textarea 
-                                    name="course-description" 
-                                    id="course-description" 
-                                    rows="4"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                                    placeholder="أدخل كامل إعلان الدورة" 
-                                    {...register('course-description', { required: 'إعلان الدورة مطلوب' })}
-                                ></textarea>
-                                {errors['course-description'] && <p className="text-sm text-red-600">{errors['course-description'].message}</p>}
-                            </div>
-                            <div>
-                                <label htmlFor="course-image" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    إعلان الدورة كصورة
-                                </label>
-                                <input 
-                                    type="file" 
-                                    name="course-image" 
-                                    id="course-image" 
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                                    
-                                />
-                                
-                            </div>
-                            <button 
-                                type="submit" 
-                                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                            >
-                                إضافة الدورة
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <form className="space-y-4 md:space-y-6 w-full *:w-full flex flex-col items-center max-w-md mx-auto p-4 rtl text-slate-900" onSubmit={handleSubmit(onSubmit)}>
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
+                إضافة دورة
+            </h1>
+
+            <FormField
+                label="عنوان الدورة"
+                name="title"
+                type="text"
+                placeholder="أدخل عنوان الدورة"
+                register={register}
+                validation={{ required: 'عنوان الدورة مطلوب' }}
+                errors={errors}
+            />
+
+            <FormField
+                label="كامل إعلان الدورة"
+                name="context"
+                type="textarea"
+                rows="4"
+                placeholder="أدخل كامل إعلان الدورة"
+                register={register}
+                validation={{ required: 'إعلان الدورة مطلوب' }}
+                errors={errors}
+            />
+            {/* add firebase */}
+            {/* <FormField
+                label="إعلان الدورة كصورة"
+                name="image"
+                type="file"
+                register={register}
+                validation={{}}
+                errors={errors}
+            /> */}
+
+            <FormField
+                label="مصدر الدورة"
+                name="ref"
+                register={register}
+                validation={{}}
+                errors={errors}
+            />
+            <button
+                type="submit"
+                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            >
+                إضافة الدورة
+            </button>
+            {message && (
+                <p className={`text-center mt-4 p-4 rounded-lg ${message.type === 'error' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
+                    {message.message}
+                </p>
+            )}
+        </form>
     );
 };
 

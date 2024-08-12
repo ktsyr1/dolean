@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link , useLocation} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import config from '../../config';
@@ -13,8 +13,11 @@ const Signup = () => {
         try {
             // استبدل هذا بعنوان API الفعلي الخاص بك
             const url = `${config.api}/auth`;
-            await axios.post(url, data);
-            setMessage('تم إنشاء حسابك بنجاح.');
+            axios.post(url, data)
+                .then((data) => {
+                    Cookies.set('x-auth-token', data.data?.token, { expires: 1 })
+                    location.replace("/")
+                })
         } catch (error) {
             console.error('حدث خطأ أثناء إنشاء الحساب:', error);
             setMessage('حدث خطأ أثناء إنشاء الحساب. يرجى المحاولة مرة أخرى.');
@@ -66,7 +69,7 @@ const Signup = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
-                    {...register('email', { 
+                    {...register('email', {
                         required: 'البريد الإلكتروني مطلوب',
                         pattern: {
                             value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -96,7 +99,7 @@ const Signup = () => {
                     id="confirm-password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    {...register('confirmPassword', { 
+                    {...register('confirmPassword', {
                         required: 'تأكيد كلمة المرور مطلوب',
                         validate: validatePassword
                     })}
@@ -113,7 +116,7 @@ const Signup = () => {
                         {...register('terms', { required: 'يجب الموافقة على الشروط والأحكام' })}
                     />
                     <div className="ml-3 text-sm">
-                        <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">أوافق على <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500" to="#">الشروط والأحكام</Link></label>
+                        <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">أوافق على <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500" to="/p/terms-conditions">الشروط والأحكام</Link></label>
                     </div>
                     {errors.terms && <p className="text-red-500 text-sm mt-1">{errors.terms.message}</p>}
                 </div>

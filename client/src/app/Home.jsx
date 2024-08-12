@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Hero from '../components/landing/Hero';
 import Coureslist from '../components/landing/coureslist';
+import PricingSection from '../components/landing/price';
 
 const Home = () => {
     const [data, setData] = useState(null);
@@ -30,8 +31,9 @@ const Home = () => {
     return (
         <div className="w-full flex flex-col justify-center items-center p-4">
             <Hero />
-            {/* <Coureslist /> */}
+            <Coureslist />
             <Btn to="/add-course" text="اضافة كورس" />
+            <PricingSection />
         </div>
     );
 };
