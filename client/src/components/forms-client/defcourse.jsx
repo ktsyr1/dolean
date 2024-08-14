@@ -56,7 +56,7 @@ const AddDefCourse = () => {
 
                         <FormField
                             label="مصدر الدورة"
-                            name="ref"
+                            name="res"
                         />
 
                         <button

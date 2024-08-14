@@ -22,7 +22,9 @@ export default async function login(req, res) {
         });
         console.log(token);
         // end
-        res.json({ success: true, token });
+        let init = { success: true, token }
+        init["isAdmin"] = user.role === "admin"
+        res.json(init);
     } else {
         res.status(401).json({ success: false, message: 'Invalid credentials' });
     }

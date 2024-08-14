@@ -2,7 +2,7 @@ import express from 'express';
 import auth from "./authRoutes.js"
 import users from "./userRoutes.js" 
 import student from "./student.js" 
-import DefCourses from "./userRoutes.js" 
+import DefCourses from "./def-courses.js" 
 import Courses from "./Courses.js" 
 import test from "./test.js"
 const app = express();

@@ -16,7 +16,8 @@ function App() {
       <Layout>
         <Routes children >
           <Route index element={<Home />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/*" element={<Admin />} />
+
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/courses" element={<Courses />} />

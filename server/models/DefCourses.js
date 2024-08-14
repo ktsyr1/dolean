@@ -4,9 +4,11 @@ const DefCoursesSchema = new mongoose.Schema({
     title: String,
     context: String,
     image: String,
-    ref: String,
+    Source: String,
     location: String
 });
 
 const DefCourses = mongoose.model('DefCourses', DefCoursesSchema);
 export default DefCourses;
+
+DefCourses = title, context, image, Source, location

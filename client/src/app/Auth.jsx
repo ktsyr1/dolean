@@ -4,7 +4,7 @@ import Signup from "../components/forms-client/signup";
 import ResetPassword from "../components/forms-client/repassword";
 import NewPassword from "../components/forms-client/newpassword";
 
-const Admin = () => {
+const Auth = () => {
     const location = useLocation();
     const query = new URLSearchParams(location.search);
     const route = query.get("route") || "login"
@@ -25,5 +25,5 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default Auth;
 

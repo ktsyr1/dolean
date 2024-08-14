@@ -31,7 +31,7 @@ const Home = () => {
     return (
         <div className="w-full flex flex-col justify-center items-center p-4">
             <Hero />
-            {/* <Coureslist /> */}
+            <Coureslist />
             <Btn to="/add-course" text="اضافة كورس" />
             <PricingSection />
         </div>

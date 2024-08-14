@@ -16,3 +16,5 @@ const CoursesSchema = new mongoose.Schema({
 
 const Courses = mongoose.model('Courses', CoursesSchema);
 export default Courses;
+
+// CoursesSchema = { title, context, links, keys, location, age.start, age.end, nationality, price }

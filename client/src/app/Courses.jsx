@@ -2,11 +2,11 @@ import React from 'react';
 
 let Coursecard = () => {
     return (
-        <div className="max-w-md mx-auto p-4 text-zinc-800">
-            <main>
-                <h2 className="text-center text-2xl font-bold mb-4">الدورات الحديثة</h2>
+        <div className="max-w-[1000px] w-full mx-auto p-4 text-zinc-800">
+            <main className='flex flex-wrap lg:justify-between justify-center w-full'>
+                <h2 className="text-center text-2xl font-bold mb-4 w-full flex flex-wrap">الدورات الحديثة</h2>
                 {courses.map((course, index) => <Card key={index} data={course} />)}
-                <button className="inline-flex items-center bg-slate-100 justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-4 py-2 w-full mt-4">
+                <button className="inline-flex items-center bg-slate-100 justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-4 py-2 w-full mt-4  max-w-[500px]  m-auto">
                     مشاهدة كل الدورات المتاحة
                 </button>
             </main>
@@ -18,8 +18,8 @@ export default Coursecard;
 
 function Card({ data: { title, university, type, imageUrl } }) {
     return (
-        <div className="bg-card flex items-center m-4 rounded-lg space-x-4 text-card-foreground">
-            <img src={imageUrl} alt={title} className="w-20 h-20 object-cover rounded-md bg-gray-200" width="80" height="80" style={{ aspectRatio: "80 / 80", objectFit: "cover" }} />
+        <div className="bg-card flex items-center m-4 rounded-lg space-x-4 text-card-foreground min-w-[300px] max-w-[500px]  lg:w-[45%] w-full ">
+            <img src={imageUrl} alt={title} className="w-32 h-32 object-cover rounded-md bg-gray-200" width="80" height="80" style={{ aspectRatio: "80 / 80", objectFit: "cover" }} />
             <div className='p-4'>
                 <h3 className="text-lg font-semibold">{title}</h3>
                 <p className="text-sm text-muted-foreground">{university}</p>
