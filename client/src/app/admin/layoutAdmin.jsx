@@ -9,6 +9,7 @@ import Cookies from "js-cookie"
 import axios from 'axios';
 import config from '../../config';
 import Auth from '../Auth';
+import OneUser from './OneUser';
 export default function AdminLayout() {
     let [isAuth, setIsAuth] = useState(false)
 
@@ -18,8 +19,11 @@ export default function AdminLayout() {
                 <Route index element={<HomeAdmin />} />
                 {/* Uncomment and add additional routes as needed */}
                 <Route path="/users" element={<AdminUsers />} />
+                <Route path="/user-details" element={<AdminUsers />} />
+                <Route path="/users/:id" element={<OneUser />} />  
                 <Route path="/courses" element={<AdminCourses />} />
                 <Route path="/def-courses" element={<AdminDefCourses />} />
+
                 <Route path="*" element={<NotFound to="/admin" />} />
             </Routes>
         </Layout>

@@ -11,4 +11,4 @@ const DefCoursesSchema = new mongoose.Schema({
 const DefCourses = mongoose.model('DefCourses', DefCoursesSchema);
 export default DefCourses;
 
-DefCourses = title, context, image, Source, location
+// DefCourses = title, context, image, Source, location

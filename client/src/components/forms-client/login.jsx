@@ -14,7 +14,7 @@ const Login = () => {
             .then((data) => {
                 Cookies.set('x-auth-token', data.data?.token, { expires: 1 })
                 console.log(data)
-                // location.replace("/")
+                location.replace("/")
             })
         // يمكنك هنا إضافة منطق تسجيل الدخول الخاص بك
     };

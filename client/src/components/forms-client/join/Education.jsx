@@ -6,7 +6,7 @@ const educationOptions = [
     { value: "", label: "حدد المستوى التعليمي", isSpecialization: false, isClass: true, graduationYear: false },
     { value: "Primary", label: "ابتدائي", isSpecialization: false, isClass: true, graduationYear: false },
     { value: "Intermediate", label: "متوسط", isSpecialization: false, isClass: true, graduationYear: false },
-    { value: "Secondary", label: "ثانوي", isSpecialization: true, isClass: true, graduationYear: true },
+    { value: "Secondary", label: "ثانوي", isSpecialization: true, isClass: true, graduationYear: false },
     { value: "Bachelors", label: "بكالوريوس", isSpecialization: true, isClass: false, graduationYear: true },
     { value: "Masters", label: "ماجستير", isSpecialization: true, isClass: false, graduationYear: true },
     { value: "PhD", label: "دكتوراه", isSpecialization: true, isClass: false, graduationYear: true },

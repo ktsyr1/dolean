@@ -4,25 +4,22 @@ import { Link } from "react-router-dom"
 export default function HomeAdmin() {
     let data = [
         { title: "المستخدمين", herf: "/admin/users", value: "23k" },
+        { title: "تفاصيل المستخدمين ", herf: "/admin/users-details", value: "1500" },
         { title: "الدورات", herf: "/admin/courses", value: "500" },
         { title: "مسودة الدورات", herf: "/admin/def-courses", value: "1500" }
     ]
     return (
-
         <div className="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden max-w-[800px]"  >
             <div>
                 <div className="flex items-center bg-white p-4 pb-2 justify-between">
                     <h2 className="text-[#111518] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-start pl-12">لوحة التحكم</h2>
-
                 </div>
                 <div className="flex flex-wrap gap-4 p-4">
                     {data.map(a => <Box key={a.title} {...a} />)}
                 </div>
                 {data.map(a => <Part key={a.title} {...a} />)}
             </div>
-
         </div >
-
     )
 }
 

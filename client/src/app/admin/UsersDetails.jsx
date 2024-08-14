@@ -8,7 +8,7 @@ export default function AdminUsers() {
     const [users, setUsers] = useState([])
     let token = Cookies.get("x-auth-token")
     useEffect(() => {
-        axios.get(`${config.api}/admin/users`, { headers: { "x-auth-token": token } })
+        axios.get(`${config.api}/admin/users-details`, { headers: { "x-auth-token": token } })
             .then(({ data }) => setUsers(data))
     }, [])
     return (
