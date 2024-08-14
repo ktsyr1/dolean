@@ -101,3 +101,32 @@ pages
 - /users get 👻  delete 👻
 - /courses 👻  put 👻  delete 👻  
 - /def-courses get 👻  put 👻  delete 👻
+
+
+
+
+<!--  -->
+build admin panle in mobile
+Modules DB
+- User = role: "admin"| "user", name, phone, email, password
+- UserDetails = user_id: <@User.id>, date_create, births<@Courses.age>, nationality, living, interests, scientific_level, data_share:{free, paid} <@Courses.price>
+- Courses = title, context, links, keys, location, age:{start,end}<@UserDetails.births>, nationality:<@UserDetails.nationality>, price:<@UserDetails.free | @UserDetails.paid>
+- Def-courses = title, context, image, ref, location
+
+
+/api/admin 👻
+- /users get 👻
+- /users/:id get 👻
+- /users/:id delete 👻
+
+- /courses get 👻
+- /courses post  ✨ 👻
+- /courses/:id get عرض الطلاب المتاحين للدورة 👻
+- /courses/:id put 👻
+- /courses/:id delete 👻
+- /courses/:id/users get ✨ 
+
+- /def-courses get 👻
+- /def-courses/:id get  👻
+- /def-courses/:id put 👻
+- /def-courses/:id delete 👻

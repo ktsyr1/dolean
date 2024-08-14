@@ -31,7 +31,6 @@ const Education = () => {
             <FormField
                 label="المستوى التعليمي"
                 name="educationLevel"
-                register={register}
                 validation={{
                     required: "المستوى التعليمي مطلوب",
                     validate: (value) => {
@@ -45,28 +44,21 @@ const Education = () => {
                     label: option.label
                 }))}
                 onChange={handleEducationChange}
-                errors={errors}
             />
             {selectedOption?.isSpecialization && (
                 <FormField
                     label="الاختصاص"
                     name="specialization"
-                    register={register}
                     validation={{ required: "الاختصاص مطلوب" }}
                     placeholder="حدد الاختصاص"
-                    errors={errors}
                 />
             )}
             {selectedOption?.isClass && (
                 <FormField
                     label="الصف الدراسي"
                     name="classes"
-                    register={register}
-                    validation={{
-                        required: "الصف الدراسي مطلوبة", 
-                    }}
+                    validation={{ required: "الصف الدراسي مطلوبة" }}
                     placeholder="الخامس"
-                    errors={errors}
                 />
             )}
             {selectedOption?.graduationYear && (
@@ -74,21 +66,18 @@ const Education = () => {
                     label="سنة التخرج"
                     name="graduationYear"
                     type="number"
-                    register={register}
                     validation={{
                         required: "سنة التخرج مطلوبة",
                         min: { value: 1950, message: "السنة يجب أن تكون بعد 1950" },
                         max: { value: 2030, message: "السنة يجب أن تكون قبل 2030" }
                     }}
                     placeholder="حدد السنة"
-                    errors={errors}
                 />
             )}
             <FormField
                 label="لغتك الإنجليزية"
                 name="englishLevel"
                 as="select"
-                register={register}
                 validation={{ required: "مستوى اللغة الإنجليزية مطلوب" }}
                 options={[
                     { value: "", label: "حدد المستوى" },
@@ -97,13 +86,11 @@ const Education = () => {
                     { value: "Advanced", label: "متقدم" },
                     { value: "Fluent", label: "طليق" }
                 ]}
-                errors={errors}
             />
             <FormField
                 label="استخدامك للحاسوب"
                 name="computerUsage"
                 as="select"
-                register={register}
                 validation={{ required: "استخدامك للحاسوب مطلوب" }}
                 options={[
                     { value: "", label: "حدد المستوى" },
@@ -111,7 +98,6 @@ const Education = () => {
                     { value: "Intermediate", label: "متوسط" },
                     { value: "Advanced", label: "متقدم" }
                 ]}
-                errors={errors}
             />
         </div>
     );

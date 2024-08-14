@@ -1,6 +1,9 @@
 import React from 'react';
+import { useFormContext } from 'react-hook-form';
 
-const FormField = ({ label, name, register, description, validation, as: Component = 'input', options, placeholder, errors, ...props }) => {
+const FormField = ({ label, name, description, validation, as: Component = 'input', options, placeholder, ...props }) => {
+
+    const { register, formState: { errors }, } = useFormContext();
     return (
         <div className="space-y-2 my-4">
             <label htmlFor={name} className="text-lg font-medium leading-none">

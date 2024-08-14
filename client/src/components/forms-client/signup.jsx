@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import config from '../../config';
+import Cookies from "js-cookie"
 
 const Signup = () => {
     let route = useLocation()

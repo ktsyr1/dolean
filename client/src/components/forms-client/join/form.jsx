@@ -5,10 +5,12 @@ import Preferences from './Preferences';
 import StaticInfo from './StaticInfo';
 import FormStepper from '../../Element/FormStepper';
 import { useState } from 'react';
+import config from '../../../config';
+import axios from 'axios';
 
 const Join = () => {
     const methods = useForm();
-    const { register, handleSubmit, formState: { errors } } = methods;
+    const { handleSubmit } = methods;
     const [step, setStep] = useState(2);
 
     const steps = [
@@ -18,10 +20,12 @@ const Join = () => {
         <StaticInfo />
     ]
 
-    const onSubmit = (data) => {
-        console.log(data);
-        // تنفيذ أي عملية بعد تقديم النموذج
+    const onSubmit = data => {
+        let url = `${config.api}/student/details`
+        axios.post(url, data).then((data) => console.log(data))
+        // يمكنك هنا إضافة منطق تسجيل الدخول الخاص بك
     };
+
 
     return (
         <FormProvider {...methods}>

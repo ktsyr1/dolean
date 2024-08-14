@@ -11,24 +11,19 @@ const BasicInfo = () => {
             <FormField
                 label="الاسم الكامل"
                 name="fullName"
-                register={register}
                 validation={{ required: "الاسم الكامل مطلوب" }}
                 placeholder=""
-                errors={errors}
             />
             <FormField
                 label="رقم الهاتف"
                 name="phone"
-                register={register}
                 validation={{ required: "رقم الهاتف مطلوب" }}
                 placeholder=""
                 type="tel"
-                errors={errors}
             />
             <FormField
                 label="سنة الميلاد"
                 name="births"
-                register={register}
                 validation={{
                     required: "سنة الميلاد مطلوبة",
                     validate: {
@@ -47,12 +42,10 @@ const BasicInfo = () => {
                 }}
                 placeholder="حدد السنة"
                 type="date"
-                errors={errors}
             />
             <FormField
                 label="المحافظة"
                 name="Governorate"
-                register={register}
                 validation={{ required: "مكان السكن الحالي مطلوب" }}
                 as="select"
                 options={[
@@ -67,20 +60,16 @@ const BasicInfo = () => {
                     { value: "Baalbek-Hermel", label: "بعلبك الهرمل" },
                     { value: "Akkar", label: "عكار" }
                 ]}
-                errors={errors}
             />
             <FormField
                 label="المدينة"
                 name="city"
-                register={register}
                 validation={{ required: "المدينة مطلوبة" }}
                 placeholder="حدد المدينة"
-                errors={errors}
             />
             <FormField
                 label="الجنسية"
                 name="nationality"
-                register={register}
                 validation={{ required: "الجنسية مطلوبة" }}
                 as="select"
                 options={[
@@ -90,19 +79,16 @@ const BasicInfo = () => {
                     { value: "Syrian", label: "سوري" },
                     { value: "Other", label: "غير ذلك" }
                 ]}
-                errors={errors}
             />
             <FormField
                 label="الدورات المطلوبة"
-                name="requiredCourses"
-                register={register}
+                name="interests"
                 validation={{ required: "الدورات المطلوبة مطلوبة" }}
                 placeholder="حدد الدورات التي ترغب في الحصول عليها"
                 as="textarea"
                 rows={4} // تحديد عدد الأسطر الظاهرة في textarea
                 // وصف الحقل ليوضح للمستخدم ما يجب إدخاله
                 description="استخدم هذا الحقل لتوضيح الدورات التدريبية التي تحتاجها أو ترغب في الحصول عليها. يمكنك ذكر المجالات أو المواضيع التي تهمك."
-                errors={errors}
             />
 
         </div>

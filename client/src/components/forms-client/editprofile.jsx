@@ -1,15 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import axios from 'axios';
 import config from '../../config';
-import Cookies from "js-cookie";
 import FormField from '../Element/FormField';
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
-const EditProfile = () => {
+export default function EditProfile() {
+    const navigate = useNavigate();
+    const token = Cookies.get("x-auth-token");
+
+    useEffect(() => {
+        if (!token) {
+            navigate("/auth?route=login", { replace: true });
+        }
+    }, [navigate, token]);
+
+    return token ? <Forms /> : null;
+}
+const Forms = () => {
+
+    const methods = useForm();
+    const { handleSubmit, reset } = methods
+
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(true); // حالة التحميل
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const url = `${config.api}/student/profile`;
     const token = Cookies.get("x-auth-token");
     if (!token) throw new Error('Unauthorized');
@@ -41,70 +57,65 @@ const EditProfile = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:space-y-6 w-full *:w-full flex flex-col items-center max-w-md mx-auto p-4 rtl text-slate-900">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
-                تعديل الملف الشخصي
-            </h1>
+        <FormProvider {...methods}>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:space-y-6 w-full *:w-full flex flex-col items-center max-w-md mx-auto p-4 rtl text-slate-900">
+                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
+                    تعديل الملف الشخصي
+                </h1>
 
-            {loading ? (
-                <p className="text-center">جاري تحميل البيانات...</p>
-            ) : (
-                <>
-                    <FormField
-                        label="الاسم الكامل"
-                        name="name"
-                        register={register}
-                        validation={{ required: "الاسم مطلوب" }}
-                        placeholder=""
-                        errors={errors}
-                    />
+                {loading ? (
+                    <p className="text-center">جاري تحميل البيانات...</p>
+                ) : (
+                    <>
+                        <FormField
+                            label="الاسم الكامل"
+                            name="name"
+                            validation={{ required: "الاسم مطلوب" }}
+                            placeholder=""
+                        />
 
-                    <FormField
-                        label="رقم الهاتف"
-                        name="phone"
-                        type="tel"
-                        placeholder="رقم هاتفك"
-                        register={register}
-                        validation={{
-                            required: 'رقم الهاتف مطلوب',
-                            minLength: {
-                                value: 6,
-                                message: 'رقم الهاتف يجب أن يكون 6 أرقام على الأقل'
-                            }
-                        }}
-                        errors={errors}
-                    />
+                        <FormField
+                            label="رقم الهاتف"
+                            name="phone"
+                            type="tel"
+                            placeholder="رقم هاتفك"
+                            validation={{
+                                required: 'رقم الهاتف مطلوب',
+                                minLength: {
+                                    value: 6,
+                                    message: 'رقم الهاتف يجب أن يكون 6 أرقام على الأقل'
+                                }
+                            }}
+                        />
 
 
-                    <FormField
-                        name="email"
-                        label="البريد الإلكتروني"
-                        type="email"
-                        placeholder="name@company.com"
-                        register={register}
-                        validation={{
-                            required: 'البريد الإلكتروني مطلوب',
-                            pattern: {
-                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                message: 'البريد الإلكتروني غير صالح'
-                            }
-                        }}
-                        errors={errors}
-                    />
+                        <FormField
+                            name="email"
+                            label="البريد الإلكتروني"
+                            type="email"
+                            placeholder="name@company.com"
+                            validation={{
+                                required: 'البريد الإلكتروني مطلوب',
+                                pattern: {
+                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                    message: 'البريد الإلكتروني غير صالح'
+                                }
+                            }}
+                        />
 
-                    <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                        تحديث المعلومات
-                    </button>
-                </>
-            )}
+                        <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            تحديث المعلومات
+                        </button>
+                    </>
+                )}
 
-            {message && (
-                <p className={`text-center mt-4 p-4 rounded-lg ${message.type === 'error' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
-                    {message.message}
-                </p>
-            )}
-        </form>
+                {message && (
+                    <p className={`text-center mt-4 p-4 rounded-lg ${message.type === 'error' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
+                        {message.message}
+                    </p>
+                )}
+            </form>
+        </FormProvider>
     );
 };
 
-export default EditProfile;

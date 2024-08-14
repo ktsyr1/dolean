@@ -1,19 +1,18 @@
 import express from 'express'
 import dynamicControllers from '../controllers/dynamic.js';
 import DefCourses from '../models/DefCourses.js';
-import { isAdmin, isLogin } from '../middleware/auth.js';
+import { isLogin } from '../middleware/auth.js';
 import Courses from '../models/Courses.js';
-import UserDetails from '../models/UserDetails.js';
 import { getProfile, updateProfile } from '../controllers/profileController.js';
+import { createUserDetails } from '../controllers/userDetails.js';
 
 const app = express.Router();
 const CoursesController = new dynamicControllers(Courses)
 const DefCoursesController = new dynamicControllers(DefCourses)
-const UserDetailsController = new dynamicControllers(UserDetails)
 
 app.get('/', CoursesController.getAll)
 app.post('/def-courses', DefCoursesController.create)
-app.post('/details', UserDetailsController.create)
+app.post('/details', createUserDetails)
 
 
 app.get('/profile', isLogin, getProfile);
