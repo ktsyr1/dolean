@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './app/Home';
-import Admin from './app/Admin';
 import AuthPage from './app/Auth';
 import Profile from './app/Profile';
 import Courses from './app/Courses';
@@ -9,6 +8,7 @@ import Layout from './components/theme/Layout';
 import AddDefCourse from './components/forms-client/defcourse';
 import Join from './components/forms-client/join/form';
 import DynamicPage from './app/DynamicPage.jsx'; // مكون الصفحة الديناميكية
+import Admin from './app/admin/layoutAdmin.jsx';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/apply" element={<Join />} />
           <Route path="/add-course" element={<AddDefCourse />} />
-          <Route path="/p/:slug" element={<DynamicPage />} /> {/* صفحة ديناميكية بناءً على الـ slug */} 
+          <Route path="/p/:slug" element={<DynamicPage />} /> {/* صفحة ديناميكية بناءً على الـ slug */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
