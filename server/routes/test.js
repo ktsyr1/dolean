@@ -4,8 +4,6 @@ const app = express();
 
 import { isAdmin, isUser } from '../middleware/auth.js';
 import dynamicControllers from '../controllers/dynamic.js';
-import DefCourses from '../models/DefCourses.js';
-import { Ai } from '../lib/AI.js';
 const userController = new dynamicControllers(User);
 
 
