@@ -1,19 +1,7 @@
 import React, { useState } from 'react';
 import FormField from '../../Element/FormField';
 import { useFormContext } from 'react-hook-form';
-
-const educationOptions = [
-    { value: "", label: "حدد المستوى التعليمي", isSpecialization: false, isClass: true, graduationYear: false },
-    { value: "Primary", label: "ابتدائي", isSpecialization: false, isClass: true, graduationYear: false },
-    { value: "Intermediate", label: "متوسط", isSpecialization: false, isClass: true, graduationYear: false },
-    { value: "Secondary", label: "ثانوي", isSpecialization: true, isClass: true, graduationYear: false },
-    { value: "Bachelors", label: "بكالوريوس", isSpecialization: true, isClass: false, graduationYear: true },
-    { value: "Masters", label: "ماجستير", isSpecialization: true, isClass: false, graduationYear: true },
-    { value: "PhD", label: "دكتوراه", isSpecialization: true, isClass: false, graduationYear: true },
-    { value: "Diploma", label: "دبلومة", isSpecialization: true, isClass: false, graduationYear: true },
-    { value: "Institute", label: "معهد", isSpecialization: true, isClass: false, graduationYear: true },
-    { value: "Other", label: "غير ذلك", isSpecialization: true, isClass: false, graduationYear: false }
-];
+import { englishLevel, computerUsage, educationOptions } from '../../../static/data.json';
 
 const Education = () => {
     const { register, formState: { errors } } = useFormContext() // retrieve all hook methods
@@ -39,10 +27,7 @@ const Education = () => {
                     }
                 }}
                 as="select"
-                options={educationOptions.map(option => ({
-                    value: option.value,
-                    label: option.label
-                }))}
+                options={educationOptions.map(option => ({ value: option.value, label: option.label }))}
                 onChange={handleEducationChange}
             />
             {selectedOption?.isSpecialization && (
@@ -79,25 +64,14 @@ const Education = () => {
                 name="englishLevel"
                 as="select"
                 validation={{ required: "مستوى اللغة الإنجليزية مطلوب" }}
-                options={[
-                    { value: "", label: "حدد المستوى" },
-                    { value: "Beginner", label: "مبتدئ" },
-                    { value: "Intermediate", label: "متوسط" },
-                    { value: "Advanced", label: "متقدم" },
-                    { value: "Fluent", label: "طليق" }
-                ]}
+                options={englishLevel}
             />
             <FormField
                 label="استخدامك للحاسوب"
                 name="computerUsage"
                 as="select"
                 validation={{ required: "استخدامك للحاسوب مطلوب" }}
-                options={[
-                    { value: "", label: "حدد المستوى" },
-                    { value: "Basic", label: "أساسي" },
-                    { value: "Intermediate", label: "متوسط" },
-                    { value: "Advanced", label: "متقدم" }
-                ]}
+                options={computerUsage}
             />
         </div>
     );

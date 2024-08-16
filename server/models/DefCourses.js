@@ -5,7 +5,8 @@ const DefCoursesSchema = new mongoose.Schema({
     context: String,
     image: String,
     Source: String,
-    location: String
+    location: String,
+    deleteState: { type: Boolean, default: false }
 });
 
 const DefCourses = mongoose.model('DefCourses', DefCoursesSchema);

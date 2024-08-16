@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import config from "../../config";
+import config from "../../../config";
 import Cookies from "js-cookie"
-import { Header } from "./layoutAdmin";
+import { Header } from "../layoutAdmin";
 import { Link } from "react-router-dom";
-export default function AdminUsers() {
+export default function AdminUsersDetails() {
     const [users, setUsers] = useState([])
     let token = Cookies.get("x-auth-token")
     useEffect(() => {
@@ -12,8 +12,8 @@ export default function AdminUsers() {
             .then(({ data }) => setUsers(data))
     }, [])
     return (
-        <div className="relative flex flex-col min-h-screen bg-white group/design-root overflow-x-hidden w-full"  >
-            <Header title={"المستخدمين"} />
+        <div className="flex flex-col min-h-screen bg-white group/design-root overflow-x-hidden w-full"  >
+            <Header title={"  تفاصيل المستخدمين"} />
             {users.map((user, index) => <UserItem key={index}{...user} />)}
             {/* <ActionButtons /> */}
         </div>
@@ -21,11 +21,11 @@ export default function AdminUsers() {
 }
 
 // UserItem.jsx 
-const UserItem = ({ name, phone, _id }) => {
+const UserItem = ({ fullName, phone, _id }) => {
     return (
-        <Link to={`/admin/users/${_id}`} className="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between rounded-lg hover:bg-slate-100">
+        <Link to={`/admin/users-details/${_id}`} className="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between rounded-lg hover:bg-slate-100">
             <div className="flex flex-col justify-center ">
-                <p className="text-[#111518] text-base font-medium leading-normal line-clamp-1">{name}</p>
+                <p className="text-[#111518] text-base font-medium leading-normal line-clamp-1">{fullName}</p>
                 <p className="text-[#60778a] text-sm font-normal leading-normal line-clamp-2">{phone}</p>
             </div>
             {/* <div className="shrink-0">

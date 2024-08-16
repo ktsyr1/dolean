@@ -1,17 +1,26 @@
 import { Routes, Route, Link } from 'react-router-dom';
-import HomeAdmin from './homeAdmin';
-import NotFound from '../NotFound';
 import { useMemo, useState } from 'react';
-import AdminUsers from './Users';
-import AdminCourses from './courses';
-import AdminDefCourses from './def-courses';
 import Cookies from "js-cookie"
 import axios from 'axios';
+// init
+import HomeAdmin from './homeAdmin';
+import NotFound from '../NotFound';
 import config from '../../config';
 import Auth from '../Auth';
-import OneUser from './OneUser';
+
+// courses
+import AdminCourses from './courses/page';
+// def-courses
+import AdminDefCourses from './def-courses/page';
+import OneDefCourses from './def-courses/One';
+// User
+import AdminUsers from './users/page';
+import OneUser from './users/One';
+// Users Details
+import AdminUsersDetails from './users-details/page';
+import OneUsersDetails from './users-details/One'
+
 export default function AdminLayout() {
-    let [isAuth, setIsAuth] = useState(false)
 
     return (
         <Layout>
@@ -19,11 +28,12 @@ export default function AdminLayout() {
                 <Route index element={<HomeAdmin />} />
                 {/* Uncomment and add additional routes as needed */}
                 <Route path="/users" element={<AdminUsers />} />
-                <Route path="/user-details" element={<AdminUsers />} />
-                <Route path="/users/:id" element={<OneUser />} />  
+                <Route path="/users/:id" element={<OneUser />} />
+                <Route path="/users-details" element={<AdminUsersDetails />} />
+                <Route path="/users-details/:id" element={<OneUsersDetails />} />
                 <Route path="/courses" element={<AdminCourses />} />
                 <Route path="/def-courses" element={<AdminDefCourses />} />
-
+                <Route path="/def-courses/:id" element={<OneDefCourses />} />
                 <Route path="*" element={<NotFound to="/admin" />} />
             </Routes>
         </Layout>
@@ -39,9 +49,10 @@ function Layout({ children }) {
                 .then(({ data }) => data?.isAdmin ? setIsAuth(true) : setIsAuth(false))
         } else setIsAuth(false)
     }, [])
+    
     if (isAuth == false) return <Auth />
     else if (isAuth) return (
-        <div className="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden max-w-[800px]"  >
+        <div className="  flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden max-w-[800px]"  >
             {children}
         </div>
     )

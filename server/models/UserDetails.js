@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
+import { Schema } from 'mongoose';
+import { model } from 'mongoose';
 
-const UserDetailsSchema = new mongoose.Schema({
+export default model('UserDetails', new Schema({
     // user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     create_at: { type: Date, default: Date.now },
 
@@ -24,10 +26,9 @@ const UserDetailsSchema = new mongoose.Schema({
     paidCoursesLimit: { type: Number, required: true },  // سقف المدفوعات للدورات المدفوعة
 
     noteInterests: String,  // ملاحظات حول الاهتمامات
-    interests: String  // الاهتمامات
+    interests: String, // الاهتمامات
+    deleteState: { type: Boolean, default: false }
 
-});
+}))
 
-const UserDetails = mongoose.model('UserDetails', UserDetailsSchema);
-export default UserDetails;
 // { user_id, Governorate, city, nationality, requiredCourses, educationLevel, specialization, classes, graduationYear, englishLevel, computerUsage, freeCourses, paidCourses, paidCoursesLimit, noteInterests, interests, phone, fullName } 

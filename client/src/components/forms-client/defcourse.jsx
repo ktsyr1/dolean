@@ -3,17 +3,19 @@ import { FormProvider, useForm } from 'react-hook-form';
 import FormField from '../Element/FormField'; // افترض أن FormField موجودة في هذا المسار
 import config from '../../config';
 import axios from 'axios';
+import { Storage } from '../firebase';
 
 const AddDefCourse = () => {
     const methods = useForm();
     const { handleSubmit, reset } = methods
     const [message, setMessage] = useState('');
     const [submitted, setSubmitted] = useState(false);
+    const [res, setRes] = useState({});
 
-    const onSubmit = async (res) => {
+    const onSubmit = async (init) => {
         try {
             const url = `${config.api}/student/def-courses`;
-            const { data } = await axios.post(url, res);
+            const { data } = await axios.post(url, { ...init, ...res });
             setMessage({ message: 'تم التسجيل بنجاح! شكراً لإضافة الدورة.', type: 'success' });
             setSubmitted(true); // تسجيل النجاح
         } catch (error) {
@@ -21,7 +23,10 @@ const AddDefCourse = () => {
             setMessage({ message: 'حدث خطأ أثناء تحديث الملف الشخصي. يرجى المحاولة مرة أخرى.', type: 'error' });
         }
     };
-
+    async function uploadImage(e) {
+        const image = await Storage.add(e.target.files);
+        setRes({ ...res, image: image[0] });
+    }
     const closeModal = () => {
         setSubmitted(false);
         reset({})
@@ -57,6 +62,13 @@ const AddDefCourse = () => {
                         <FormField
                             label="مصدر الدورة"
                             name="res"
+                        />
+
+                        <FormField
+                            label="اعلان الدورة (اختياري)"
+                            name="image"
+                            type="file"
+                            onChange={uploadImage}
                         />
 
                         <button

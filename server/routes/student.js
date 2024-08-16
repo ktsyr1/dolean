@@ -10,7 +10,8 @@ const app = express.Router();
 const CoursesController = new dynamicControllers(Courses)
 const DefCoursesController = new dynamicControllers(DefCourses)
 
-app.get('/', CoursesController.getAll)
+app.get('/courses', CoursesController.getAll)
+app.get('/courses/:id', CoursesController.get)
 app.post('/def-courses', DefCoursesController.create)
 app.post('/details', createUserDetails)
 

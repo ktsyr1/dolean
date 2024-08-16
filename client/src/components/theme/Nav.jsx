@@ -5,6 +5,8 @@ const Nav = () => {
     let menu = useRef()
     let close = () => menu.current.classList.toggle("hidden")
     let islogin = Cookies.get("x-auth-token")
+    let isAdmin = Cookies.get("isAdmin")
+    let toAdmin = isAdmin ? "/admin" : "/profile"
     return (
         <nav className="bg-white dark:bg-gray-800 antialiased fixed w-full">
             <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
@@ -38,7 +40,7 @@ const Nav = () => {
                     </div>
                     <div className='flex flex-row justify-center items-center'>
                         <CastamLink to="/apply" classnames="mx-4 " text="اخبرنا عنك" />
-                        <Link to={islogin ? "/profile" : "/auth?route=login"} classnames="mx-6 " text="الملف الشخصي" >
+                        <Link to={islogin ? toAdmin : "/auth?route=login"} classnames="mx-6 " text="الملف الشخصي" >
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width={40}>
                                 <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                                 <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>

@@ -1,6 +1,7 @@
 import React from 'react';
 import FormField from '../../Element/FormField';
 import { useFormContext } from 'react-hook-form';
+import { Governorate, nationality } from '../../../static/data.json';
 
 const BasicInfo = () => {
     const { register, formState: { errors } } = useFormContext(); // retrieve all hook methods
@@ -48,18 +49,7 @@ const BasicInfo = () => {
                 name="Governorate"
                 validation={{ required: "مكان السكن الحالي مطلوب" }}
                 as="select"
-                options={[
-                    { value: "", label: "حدد المحافظة" },
-                    { value: "Beirut", label: "بيروت" },
-                    { value: "Mount Lebanon", label: "جبل لبنان" },
-                    { value: "North Lebanon", label: "لبنان الشمالي" },
-                    { value: "South Lebanon", label: "لبنان الجنوبي" },
-                    { value: "Central Beqaa", label: "البقاع الأوسط" },
-                    { value: "West Beqaa", label: "البقاع الغربي" },
-                    { value: "Nabatieh", label: "النبطية" },
-                    { value: "Baalbek-Hermel", label: "بعلبك الهرمل" },
-                    { value: "Akkar", label: "عكار" }
-                ]}
+                options={Governorate}
             />
             <FormField
                 label="المدينة"
@@ -72,13 +62,7 @@ const BasicInfo = () => {
                 name="nationality"
                 validation={{ required: "الجنسية مطلوبة" }}
                 as="select"
-                options={[
-                    { value: "", label: "حدد الجنسية" },
-                    { value: "Lebanese", label: "لبناني" },
-                    { value: "Palestinian", label: "فلسطيني" },
-                    { value: "Syrian", label: "سوري" },
-                    { value: "Other", label: "غير ذلك" }
-                ]}
+                options={nationality}
             />
             <FormField
                 label="الدورات المطلوبة"
@@ -96,3 +80,4 @@ const BasicInfo = () => {
 };
 
 export default BasicInfo;
+

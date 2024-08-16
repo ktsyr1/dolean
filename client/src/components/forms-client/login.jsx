@@ -13,6 +13,7 @@ const Login = () => {
         axios.put(url, data)
             .then((data) => {
                 Cookies.set('x-auth-token', data.data?.token, { expires: 1 })
+                Cookies.set('isAdmin', data.data?.isAdmin, { expires: 1 })
                 console.log(data)
                 location.replace("/")
             })

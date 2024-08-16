@@ -1,15 +1,27 @@
-import { Link } from "react-router-dom"
-
+import axios from "axios";
+import { useEffect, useState } from "react";
+import config from "../../config";
+import Cookies from "js-cookie"
+import { Link } from "react-router-dom";
 
 export default function HomeAdmin() {
+    const [admin, set] = useState([])
+    let token = Cookies.get("x-auth-token")
+    useEffect(() => {
+        axios.get(`${config.api}/admin`, { headers: { "x-auth-token": token } })
+            .then(({ data }) => set(data))
+    }, [])
+
+
+
     let data = [
-        { title: "المستخدمين", herf: "/admin/users", value: "23k" },
-        { title: "تفاصيل المستخدمين ", herf: "/admin/users-details", value: "1500" },
-        { title: "الدورات", herf: "/admin/courses", value: "500" },
-        { title: "مسودة الدورات", herf: "/admin/def-courses", value: "1500" }
+        { title: "مسودة الدورات", herf: "/admin/def-courses", value: admin.defCourses },
+        { title: "الدورات", herf: "/admin/courses", value: admin.courses },
+        { title: "تفاصيل المستخدمين ", herf: "/admin/users-details", value: admin.userDetails },
+        { title: "المستخدمين", herf: "/admin/users", value: admin.users },
     ]
     return (
-        <div className="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden max-w-[800px]"  >
+        <div className=" flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden max-w-[800px]"  >
             <div>
                 <div className="flex items-center bg-white p-4 pb-2 justify-between">
                     <h2 className="text-[#111518] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-start pl-12">لوحة التحكم</h2>
@@ -25,7 +37,7 @@ export default function HomeAdmin() {
 
 function Box({ title, value }) {
     return (
-        <div className="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#f0f2f5] cursor-pointer">
+        <div className="flex min-w-[158px] justify-between flex-1 flex-col gap-2 rounded-xl p-6 bg-[#f0f2f5] cursor-pointer">
             <p className="text-[#111518] text-base font-medium leading-normal">{title}</p>
             <p className="text-[#111518] tracking-light text-2xl font-bold leading-tight">+{value}</p>
         </div>

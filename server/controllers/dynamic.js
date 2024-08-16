@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 export default class dynamicControllers {
     constructor(models) {
         this.models = models
@@ -11,7 +13,7 @@ export default class dynamicControllers {
     getAll = async (req, res) => {
         let { query } = req
         try {
-            const data = await this.models.find(query, '-password');
+            const data = await this.models.find({ ...query, deleteState: false }, '-password');
             res.json(data);
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -28,7 +30,9 @@ export default class dynamicControllers {
 
     get = async (req, res) => {
         try {
+            console.log(req.params.id);
             const data = await this.models.findOne({ _id: req.params.id }, '-password')
+
             if (!data) return res.status(404).json({ message: 'data not found' });
             res.json(data);
         } catch (error) {
@@ -47,8 +51,12 @@ export default class dynamicControllers {
     }
 
     remove = async (req, res) => {
+        console.log(req.params);
         try {
-            const data = await this.models.findByIdAndDelete(req.params.id);
+            const data = await this.models.updateOne(
+                { _id: new mongoose.Types.ObjectId(req.params.id) }, // Use 'new' with ObjectId
+                { $set: { deleteState: true } }
+            );
             if (!data) return res.status(404).json({ message: 'data not found' });
             res.json({ message: 'models deleted' });
         } catch (error) {

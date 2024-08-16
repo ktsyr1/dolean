@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import config from "../../config";
+import config from "../../../config";
 import Cookies from "js-cookie"
-import { Header } from "./layoutAdmin";
+import { Header } from "../layoutAdmin";
 import { Link } from "react-router-dom";
 export default function AdminUsers() {
     const [users, setUsers] = useState([])
@@ -12,7 +12,7 @@ export default function AdminUsers() {
             .then(({ data }) => setUsers(data))
     }, [])
     return (
-        <div className="relative flex flex-col min-h-screen bg-white group/design-root overflow-x-hidden w-full"  >
+        <div className="flex flex-col min-h-screen bg-white group/design-root overflow-x-hidden w-full"  >
             <Header title={"المستخدمين"} />
             {users.map((user, index) => <UserItem key={index}{...user} />)}
             {/* <ActionButtons /> */}

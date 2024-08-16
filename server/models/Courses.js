@@ -1,6 +1,7 @@
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-const CoursesSchema = new mongoose.Schema({
+const CoursesSchema = new Schema({
+    image: String,
     title: String,
     context: String,
     links: [String],
@@ -11,10 +12,11 @@ const CoursesSchema = new mongoose.Schema({
         end: Number
     },
     nationality: String,
-    price: Number
+    price: Number,
+    deleteState: { type: Boolean, default: false }
 });
 
-const Courses = mongoose.model('Courses', CoursesSchema);
+const Courses = model('Courses', CoursesSchema);
 export default Courses;
 
 // CoursesSchema = { title, context, links, keys, location, age.start, age.end, nationality, price }
