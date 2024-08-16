@@ -22,9 +22,9 @@ export default function OneCourses() {
 
     // تحويل Markdown إلى HTML باستخدام markdown-it
     return (
-        <div className="bg-white rounded-lg p-6 m-4 w-full flex flex-col md:w-[70%]">
-            <div className="bg-white rounded-lg px-6 mx-4 w-full flex flex-col lg:flex-row  justify-start">
-                <img className=" m-auto w-auto rounded-lg md:max-h-[300px] md:w-fit  my-4" src={image} alt={title} />
+        <div className="bg-white pt-0 mt-0 rounded-lg md:p-6 m-4 w-full flex flex-col md:w-[70%]">
+            <div className="bg-white rounded-lg md:px-6 md:mx-4 w-full flex flex-col lg:flex-row  justify-start">
+                <img className=" m-auto w-auto rounded-lg md:max-h-[300px] md:w-fit md:my-4" src={image} alt={title} />
                 <div className="flex flex-col m-4">
                     <h2 className="text-2xl font-bold mb-4 lg:max-w-[350px] ">{title}</h2>
                     <div className="  *:my-4">
@@ -135,8 +135,8 @@ let Icons = {
             <path
                 d="M5 22V14M5 14L7.47067 13.5059C9.1212 13.1758 10.8321 13.3328 12.3949 13.958C14.0885 14.6354 15.9524 14.7619 17.722 14.3195L17.9364 14.2659C18.5615 14.1096 19 13.548 19 12.9037V5.53669C19 4.75613 18.2665 4.18339 17.5092 4.3727C15.878 4.78051 14.1597 4.66389 12.5986 4.03943L12.3949 3.95797C10.8321 3.33284 9.1212 3.17576 7.47067 3.50587L5 4M5 14V11M5 4V2M5 4V7"
                 stroke="#1C274C"
-                stroke-width="1.5"
-                stroke-linecap="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
             />
         </svg>
     )

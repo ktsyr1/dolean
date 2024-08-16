@@ -5,7 +5,7 @@ import Cookies from "js-cookie"
 let Hero = () => {
     let islogin = Cookies.get("x-auth-token")
     return (
-        <section className="bg-white dark:bg-gray-900 flex flex-col-reverse items-center justify-between md:flex-row py-8 w-full">
+        <section className="bg-white dark:bg-gray-900 flex flex-col-reverse items-center justify-between md:flex-row py-8 p-4 w-full">
             <div className=" px-4 mx-auto max-w-screen-xl *:text-start lg:pl-12">
                 <h1 className="mb-4 text-4xl flex flex-col *:py-4 font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                     <span>أطلق العنان</span>

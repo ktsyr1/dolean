@@ -15,10 +15,10 @@ let CoursesList = () => {
     return (
         <section>
             <div className="flex items-center my-4 mx-4">
-                <h2 className="text-2xl font-bold">الدورات الحديثة</h2>
-                <Link className="text-blue-600 text-lg font-bold mx-4" to="/courses"> المزيد </Link>
+                <h2 className="text-xl font-bold">الدورات الحديثة</h2>
+                <Link className="text-blue-600 text-md font-bold mx-4" to="/courses"> المزيد </Link>
             </div>
-            <div className="  w-full tap:px-24 px-12 space-x-3 -overflow-x-scroll scrollbar-hide- cursor-e-resize select-none ">
+            <div className="  w-full tap:px-24 md:px-12 space-x-3 -overflow-x-scroll scrollbar-hide- cursor-e-resize select-none ">
                 <div className="flex flex-wrap mt-4 -w-max space-x-4  justify-center">
                     {data?.slice(0, 6).map((course, index) => <Card key={index} data={course} />)}
                 </div>

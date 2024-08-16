@@ -1,38 +1,16 @@
-import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import Hero from '../components/landing/Hero';
-import Coureslist from '../components/landing/coureslist';
-import PricingSection from '../components/landing/price';
+import Hero from './landing/Hero';
+import Coureslist from './landing/coureslist';
+import PricingSection from './landing/price';
+import AddDefCourses from './landing/defcourse';
 
-const Home = () => {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // const response = await axios.get('YOUR_API_ENDPOINT_HERE');
-                // setData(response.data);
-                // setLoading(false);
-            } catch (err) {
-                setError(err);
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    // if (loading) return <p>Loading...</p>;
-    // if (error) return <p>Error: {error.message}</p>;
-
+const Home = () => { 
     return (
-        <div className="w-full flex flex-col justify-center items-center p-4">
+        <div className="w-full flex flex-col justify-center items-center ">
             <Hero />
             <Coureslist />
-            <Btn to="/add-course" text="اضافة كورس" />
+            <AddDefCourses />
+            {/* <Btn to="/add-course" text="اضافة كورس" /> */}
             <PricingSection />
         </div>
     );
