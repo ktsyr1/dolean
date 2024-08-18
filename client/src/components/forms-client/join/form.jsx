@@ -19,8 +19,9 @@ const Join = () => {
         <Preferences />,
         <StaticInfo />
     ]
-
+    console.log(step);
     const onSubmit = data => {
+        console.log(data);
         let url = `${config.api}/student/details`
         axios.post(url, data).then((data) => console.log(data))
         // يمكنك هنا إضافة منطق تسجيل الدخول الخاص بك

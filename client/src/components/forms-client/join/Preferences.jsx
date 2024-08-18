@@ -47,6 +47,7 @@ const PreferenceField = ({ label, name, validation }) => {
 const Preferences = () => {
     const { register, formState: { errors }, control } = useFormContext();
     const paidCourses = useWatch({ control, name: "paidCourses" });
+    const freeCourses = useWatch({ control, name: "freeCourses" });
     console.log(paidCourses);
     return (
         <div>

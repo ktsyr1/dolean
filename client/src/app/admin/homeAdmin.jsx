@@ -47,7 +47,7 @@ function Box({ title, value }) {
 function Part({ title, herf }) {
 
     return (
-        <Link to={herf} className="flex items-center gap-4 bg-white px-4 min-h-14 justify-between">
+        <Link to={herf} className="flex items-center gap-4 bg-white px-4 min-h-14 justify-between rounded-md hover:bg-slate-100">
             <p className="text-[#111518] text-base font-medium leading-normal flex-1 truncate">ادارة {title}</p>
             <div className="shrink-0">
                 <div className="text-[#111518] flex size-7 items-center justify-center rotate-180" data-icon="CaretRight" data-size="24px" data-weight="regular">

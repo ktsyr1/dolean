@@ -22,7 +22,7 @@ export default model('UserDetails', new Schema({
     
     freeCourses: { type: Boolean, required: true },  // هل استفاد من الدورات المجانية
     paidCourses: { type: Boolean, required: true },  // هل استفاد من الدورات المدفوعة
-    paidCoursesLimit: { type: Number, required: true },  // سقف المدفوعات للدورات المدفوعة
+    paidCoursesLimit: { type: Number },  // سقف المدفوعات للدورات المدفوعة
     
     requiredCourses: [String],  // الدورات المطلوبة
     deleteState: { type: Boolean, default: false }

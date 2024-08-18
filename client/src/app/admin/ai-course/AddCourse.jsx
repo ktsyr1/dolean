@@ -22,12 +22,13 @@ const AddCourse = ({ nextStep, prevStep }) => {
             // if (!validNationalities.includes(data.nationality)) {
             //     throw new Error('الجنسية غير صالحة');
             // } 
-            // res["image"] = typeof res.image == "string" ? res.image : "";
+            res["image"] = Res?.image ? Res.image : "";
             console.log(res);
             const url = `${config.api}/admin/courses`;
             const { data } = await axios.post(url, { ...res, ...Res }, headers);
+            localStorage.setItem("course",data._id)
             // await axios.post(url, data, headers);
-            // nextStep();
+            nextStep();
         } catch (error) {
             console.error('Error adding course:', error);
         }

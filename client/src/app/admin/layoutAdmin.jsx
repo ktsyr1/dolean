@@ -73,7 +73,7 @@ export const Header = ({ to = "/admin", title, add }) => {
                 </svg>
             </Link>
             <h2 className="text-[#111518] text-lg font-bold leading-tight pr-12">{title}</h2>
-            {add && <Link to={add} className="text-white bg-primary-700 p-4 rounded-md flex items-center mx-4"  >
+            {add && <Link to={add} className="text-white bg-primary-700 p-2 px-4 rounded-md flex items-center mx-4 font-bold text-3xl"  >
                 +
             </Link>}
         </div>

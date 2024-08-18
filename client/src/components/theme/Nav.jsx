@@ -8,7 +8,7 @@ const Nav = () => {
     let isAdmin = Cookies.get("isAdmin")
     let toAdmin = isAdmin ? "/admin" : "/profile"
     return (
-        <nav className="bg-white dark:bg-gray-800 antialiased fixed w-full">
+        <nav className="bg-white dark:bg-gray-800 antialiased fixed w-full z-50">
             <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
                 <div className="flex items-center justify-between">
 

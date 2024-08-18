@@ -31,9 +31,14 @@ export default function FormStepper({ children }) {
                     </button>
                 </div>
             ) : (
+                <>
+                   <button type="button" onClick={prevStep} className={`${classnames} !text-primary-700 border border-primary-700 !bg-white `} >
+                            السابق
+                        </button>
                 <Link to="/" className={classnames} >
                     العودة للصفحة الرئيسية
                 </Link>
+                </>
             )}
         </div>
     );
