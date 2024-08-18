@@ -14,7 +14,7 @@ export default function AdminCourses() {
     }, [])
     return (
         <div className="flex flex-col min-h-screen bg-white group/design-root overflow-x-hidden w-full"  >
-            <Header title={"الدورات"} />
+            <Header title={"الدورات"} add="/admin/ai-course" />
             {courses.map((course, index) => <CourseItem key={index}{...course} />)}
 
             {/* <AddCourseButton /> */}

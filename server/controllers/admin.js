@@ -6,9 +6,9 @@ import UserDetails from "../models/UserDetails.js"
 
 export const AdminStates = async (req, res) => {
     // console.log(req.query.id);
-    let users = await User.countDocuments()
-    let userDetails = await UserDetails.countDocuments()
-    let courses = await Courses.countDocuments()
-    let defCourses = await DefCourses.countDocuments()
+    let users = await User.countDocuments({ deleteState: false })
+    let userDetails = await UserDetails.countDocuments({ deleteState: false })
+    let courses = await Courses.countDocuments({ deleteState: false })
+    let defCourses = await DefCourses.countDocuments({ deleteState: false })
     res.status(200).json({ users, userDetails, courses, defCourses })
 }

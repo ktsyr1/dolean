@@ -37,7 +37,12 @@ export default Coursecard;
 function Card({ data: { title, location, image, _id } }) {
     return (
         <Link to={`/courses/${_id}`} className="bg-card flex items-center m-4 rounded-lg space-x-4 text-card-foreground min-w-[300px] max-w-[500px]  lg:w-[45%] w-full ">
-            <img src={image} alt={title} className="w-32 h-32 object-cover rounded-md bg-gray-200" width="80" height="80" style={{ aspectRatio: "80 / 80", objectFit: "cover" }} />
+
+
+            {image.length > 1
+                ? <img src={image} alt={title} className="w-32 h-32 object-cover rounded-md bg-gray-200" style={{ aspectRatio: "80 / 80", objectFit: "cover" }} />
+                : <div className='w-32 h-32  bg-gray-200 rounded-md flex justify-center items-center text-gray-300 font-bold'>لا يوجد صورة</div>}
+
             <div className='p-4'>
                 <h3 className="text-lg font-semibold">{title}</h3>
                 <p className="text-md my-2 text-muted-foreground">{location}</p>

@@ -13,7 +13,7 @@ export default class dynamicControllers {
     getAll = async (req, res) => {
         let { query } = req
         try {
-            const data = await this.models.find({ ...query, deleteState: false }, '-password');
+            const data = await this.models.find({ ...query, deleteState: false }, '-password').sort({_id:-1})
             res.json(data);
         } catch (error) {
             res.status(500).json({ message: error.message });

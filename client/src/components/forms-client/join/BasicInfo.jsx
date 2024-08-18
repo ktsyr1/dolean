@@ -1,10 +1,10 @@
 import React from 'react';
 import FormField from '../../Element/FormField';
-import { useFormContext } from 'react-hook-form';
+// import { useFormContext } from 'react-hook-form';
 import { Governorate, nationality } from '../../../static/data.json';
 
 const BasicInfo = () => {
-    const { register, formState: { errors } } = useFormContext(); // retrieve all hook methods
+    // const { register, formState: { errors } } = useFormContext(); // retrieve all hook methods
 
     return (
         <div>
