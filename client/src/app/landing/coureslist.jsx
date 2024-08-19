@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import config, { headers } from "../../config";
 import { useState, useEffect } from 'react';
+import Spinner from "../../components/Element/Spinner";
 
 let CoursesList = () => {
     const [data, setData] = useState(null);
