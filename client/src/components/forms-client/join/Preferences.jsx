@@ -62,7 +62,7 @@ const Preferences = () => {
             />
             {paidCourses && (
                 <FormField
-                    label="حدد سقف المدفوعات للدورات المدفوعة"
+                    label="كم مستعد ان تدفع للدورات المدفوعة ب$"
                     name="paidCoursesLimit"
                     validation={{ required: "سقف المدفوعات مطلوب" }}
                     type="number"

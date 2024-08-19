@@ -11,8 +11,8 @@ let CoursesList = () => {
             .then(({ data }) => setData(data))
             .catch(error => console.error('Error fetching user data:', error));
     }, []);
-
-    return (
+    if (!data) return <Spinner />
+    else return (
         <section>
             <div className="flex items-center my-4 mx-4">
                 <h2 className="text-xl font-bold">الدورات الحديثة</h2>
