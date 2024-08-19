@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import config, { headers } from "../../config";
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 let CoursesList = () => {
-
     const [data, setData] = useState(null);
     useEffect(() => {
         // افترض أنك تستدعي API للحصول على بيانات المستخدم
@@ -14,35 +12,20 @@ let CoursesList = () => {
             .catch(error => console.error('Error fetching user data:', error));
     }, []);
 
-    const scrollLeft = () => document.getElementById('slider').scrollLeft -= 200;
-
-
-    const scrollRight = () => document.getElementById('slider').scrollLeft += 200;
-
     return (
-        <section className=" lg:max-w-[1300px] md:max-w-md">
-            <div className="flex items-center my-4   w-full max-w-screen-xl mx-auto px-4 rtl">
+        <section>
+            <div className="flex items-center my-4 mx-4">
                 <h2 className="text-xl font-bold">الدورات الحديثة</h2>
-                <Link className="text-blue-600 text-md font-bold mx-4" to="/courses"> المزيد </Link>
             </div>
-            <div className="overflow-x-auto">
-                <div className="flex space-x-4">
-                    {data?.slice(0, 6).map((course, index) => <Card key={index} data={course} />)}
-
+            <div className="flex items-center my-4  ">
+                <div className="relative flex-col justify-center flex">
+                    <div id="slider" className="flex flex-wrap justify-center space-x-4 pb-4">
+                        {data?.slice(0, 3).map((course, index) => <Card key={index} data={course} />)}
+                    </div>
+                    <Link to="/apply" className="inline-flex justify-center items-center py-3 px-8 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 cursor-pointer w-max mx-auto"> المزيد من الدورات </Link>
                 </div>
-                <button onClick={scrollLeft} className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md">
-                    <ChevronLeft className="w-6 h-6 text-gray-600" />
-                </button>
-                <button onClick={scrollRight} className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md">
-                    <ChevronRight className="w-6 h-6 text-gray-600" />
-                </button>
             </div>
-            {/* <div className="  w-full tap:px-24 md:px-12 space-x-3 -overflow-x-scroll scrollbar-hide- cursor-e-resize select-none ">
-                <div className="flex flex-wrap mt-4 -w-max space-x-4  justify-center">
-                    {data?.slice(0, 6).map((course, index) => <Card key={index} data={course} />)}
-                </div>
-            </div> */}
-        </section >
+        </section>
     );
 }
 
