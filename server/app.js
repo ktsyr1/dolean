@@ -5,11 +5,12 @@ import AllAPI from "./routes/AllRoutes.js"
 import swaggerUi from 'swagger-ui-express';
 import { specs } from './lib/swagger.js';
 import cors from 'cors'
+import { securityHeaders } from './middleware/securityHeaders.js';
 
 dotenv.config();
 const app = express();
 app.use(cors()); // السماح بكل الأصول
-
+app.use(securityHeaders);
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)

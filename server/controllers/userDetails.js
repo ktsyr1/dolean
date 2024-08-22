@@ -29,7 +29,7 @@ export const UserDetailsFilter = async (req, res) => {
 
     if (courses.price == 0) query.freeCourses = true
     else if (courses.price > 0 ) {
-        query.price = { $gt: 0, $lte: filterBy.paidCoursesLimit };
+        query.price = { $gt: 0, $lte: filterBy?.paidCoursesLimit };
     }
 
     // Add more filters as needed
