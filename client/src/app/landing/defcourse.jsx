@@ -4,7 +4,7 @@ import AddDefCourse from "../../components/forms-client/defcourse";
 export default function AddDefCourses() {
     return (
         <div className="AddDefCourses  flex-col justify-center my-6 p-4 w-full h-auto">
-            <div className="h-14 items-start justify-end pb-3 pl-4 pt-5 w-96 text-right text-neutral-900 text-xl font-bold leading-7">
+            <div className="h-14 items-start justify-end pb-3 pl-4 pt-5  text-right text-neutral-900 text-xl font-bold leading-7">
                 شارك الفرص التعليمية من حولك
             </div>
             <div className="AddDefCourses flex flex-wrap md:flex-row justify-center my-6 p-4 w-full h-auto ">
