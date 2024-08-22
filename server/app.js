@@ -11,6 +11,7 @@ const app = express();
 app.use(cors()); // السماح بكل الأصول
 
 app.use(express.json());
+app.use(express.static("/api-docs"));
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected'))
