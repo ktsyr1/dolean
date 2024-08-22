@@ -9,9 +9,8 @@ const options = {
             description: 'API documentation for your Dolean',
         },
         servers: [
+            // url: 'http://localhost:5000', // Make sure this matches your actual server URL and scheme                description: 'Development server',
             {
-                url: 'http://localhost:5000', // Make sure this matches your actual server URL and scheme                description: 'Development server',
-            }, {
                 url: "https://courses-lb-api.vercel.app",
 
                 description: 'Production server',
@@ -83,7 +82,7 @@ const options = {
                         price: {
                             type: 'number',
                             description: 'The price of the course'
-                        }, 
+                        },
                         isOnline: {
                             type: 'boolean',
                             default: true,
