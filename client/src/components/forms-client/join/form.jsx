@@ -10,7 +10,7 @@ import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 
-let def = { 
+let def = {
     "fullName": "sdfs",
     "phone": "70723177",
     "births": {
@@ -36,7 +36,7 @@ let def = {
 }
 const Join = () => {
 
-    const methods = useForm({ defaultValues: def });
+    const methods = useForm();
     const { handleSubmit } = methods;
     const [step, setStep] = useState(2);
 
