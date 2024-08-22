@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 // Get user profile
 export const getProfile = async (req, res) => {
-    const token = req.header('x-auth-token')?.replace('Bearer ', '');
+    const token = req.header('authorization')?.replace('Bearer ', '');
 
     if (!token) {
         return res.status(401).json({ message: 'Authentication token is missing' });
@@ -20,7 +20,7 @@ export const getProfile = async (req, res) => {
 
 // Update user profile
 export const updateProfile = async (req, res) => {
-    const token = req.header('x-auth-token')?.replace('Bearer ', '');
+    const token = req.header('authorization')?.replace('Bearer ', '');
 
     if (!token) return res.status(401).json({ message: 'رمز التحقق مفقود', state: false });
 

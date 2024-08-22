@@ -9,12 +9,11 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        let url = `${config.api}/auth`
-        axios.put(url, data)
+        let url = `${config.api}/auth/login`
+        axios.post(url, data)
             .then((data) => {
-                Cookies.set('x-auth-token', data.data?.token, { expires: 1 })
+                Cookies.set('authorization', data.data?.token, { expires: 1 })
                 Cookies.set('isAdmin', data.data?.isAdmin, { expires: 1 })
-                console.log(data)
                 location.replace("/")
             })
         // يمكنك هنا إضافة منطق تسجيل الدخول الخاص بك

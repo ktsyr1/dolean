@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import config from "../../../config";
+import config, { headers } from "../../../config";
 import Cookies from "js-cookie"
 import { Header } from "../layoutAdmin";
 import { Link } from "react-router-dom";
 export default function AdminUsers() {
     const [users, setUsers] = useState([])
-    let token = Cookies.get("x-auth-token")
+    let token = Cookies.get("authorization")
     useEffect(() => {
-        axios.get(`${config.api}/admin/users`, { headers: { "x-auth-token": token } })
+        axios.get(`${config.api}/admin/users`, headers)
             .then(({ data }) => setUsers(data))
     }, [])
     return (

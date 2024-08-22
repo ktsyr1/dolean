@@ -23,7 +23,6 @@ const AddCourse = ({ nextStep, prevStep }) => {
             //     throw new Error('الجنسية غير صالحة');
             // } 
             res["image"] = Res?.image ? Res.image : "";
-            console.log(res);
             const url = `${config.api}/admin/courses`;
             const { data } = await axios.post(url, { ...res, ...Res }, headers);
             localStorage.setItem("course",data._id)

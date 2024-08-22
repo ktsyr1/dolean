@@ -5,7 +5,7 @@ import axios from 'axios';
 // init
 import HomeAdmin from './homeAdmin';
 import NotFound from '../NotFound';
-import config from '../../config';
+import config, { headers } from '../../config';
 import Auth from '../Auth';
 
 // courses
@@ -21,6 +21,7 @@ import AdminUsersDetails from './users-details/page';
 import OneUsersDetails from './users-details/One'
 import AiCourse from './ai-course/page';
 import OneCourses from './courses/One';
+import Spinner from '../../components/Element/Spinner';
 
 export default function AdminLayout() {
 
@@ -46,10 +47,10 @@ export default function AdminLayout() {
 
 function Layout({ children }) {
     let [isAuth, setIsAuth] = useState(null)
-    let token = Cookies.get("x-auth-token")
+    let token = Cookies.get("authorization")
     useMemo(() => {
         if (token) {
-            return axios.get(`${config.api}/auth`, { headers: { "x-auth-token": token } })
+            return axios.get(`${config.api}/auth`, headers)
                 .then(({ data }) => data?.isAdmin ? setIsAuth(true) : setIsAuth(false))
         } else setIsAuth(false)
     }, [])
@@ -60,7 +61,7 @@ function Layout({ children }) {
             {children}
         </div>
     )
-    else return <>loding</>
+    else return <Spinner />
 
 }
 

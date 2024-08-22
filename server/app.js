@@ -2,9 +2,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import AllAPI from "./routes/AllRoutes.js"
-dotenv.config();
-
+import swaggerUi from 'swagger-ui-express';
+import { specs } from './lib/swagger.js';
 import cors from 'cors'
+
+dotenv.config();
 const app = express();
 app.use(cors()); // السماح بكل الأصول
 
@@ -12,8 +14,9 @@ app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, { swaggerOptions: { persistAuthorization: true } }));
 app.use('/api', AllAPI);
 app.get("/", (req, res) => res.send("start api"))
 

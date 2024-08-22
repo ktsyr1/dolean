@@ -15,29 +15,29 @@ export default function FormStepper({ children }) {
 
     const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 0));
     let classnames = "bg-primary-700 btn btn-primary dark:focus:ring-primary-900 focus:ring-4 focus:ring-primary-300 font-medium hover:bg-primary-800 inline-flex items-center justify-center px-5 py-3 rounded-lg text-base text-center text-white w-full"
-    console.log(currentStep, steps.length - 2);
+    // console.log(currentStep, steps.length - 2);
     return (
         <div>
             <div>{steps[currentStep]}</div>
-            {currentStep < steps.length - 1 ? (
+            {currentStep < steps.length  ? (
                 <div className="flex justify-between mt-4">
                     {currentStep > 0 && (
                         <button type="button" onClick={prevStep} className={`${classnames} !text-primary-700 border border-primary-700 !bg-white `} >
                             السابق
                         </button>
                     )}
-                    <button type={currentStep === steps.length - 2 ? "submit" : "button"} onClick={nextStep} className={classnames}    >
-                        {currentStep === steps.length - 2 ? 'تقديم' : 'التالي'}
+                    <button type={currentStep === steps.length - 1 ? "submit" : "button"} onClick={nextStep} className={classnames}    >
+                        {currentStep === steps.length - 1 ? 'تقديم' : 'التالي'}
                     </button>
                 </div>
             ) : (
                 <>
-                   <button type="button" onClick={prevStep} className={`${classnames} !text-primary-700 border border-primary-700 !bg-white `} >
-                            السابق
-                        </button>
-                <Link to="/" className={classnames} >
-                    العودة للصفحة الرئيسية
-                </Link>
+                    <button type="button" onClick={prevStep} className={`${classnames} !text-primary-700 border border-primary-700 !bg-white `} >
+                        السابق
+                    </button>
+                    <Link to="/" className={classnames} >
+                        العودة للصفحة الرئيسية
+                    </Link>
                 </>
             )}
         </div>

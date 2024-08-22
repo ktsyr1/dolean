@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FormProvider, useForm } from 'react-hook-form';
 import axios from 'axios';
-import config from '../../config';
+import config, { headers } from '../../config';
 import FormField from '../Element/FormField';
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
 export default function EditProfile() {
     const navigate = useNavigate();
-    const token = Cookies.get("x-auth-token");
+    const token = Cookies.get("authorization");
 
     useEffect(() => {
         if (!token) {
@@ -27,13 +27,13 @@ const Forms = () => {
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(true); // حالة التحميل
     const url = `${config.api}/student/profile`;
-    const token = Cookies.get("x-auth-token");
+    const token = Cookies.get("authorization");
     if (!token) throw new Error('Unauthorized');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data } = await axios.get(url, { headers: { "x-auth-token": token } });
+                const { data } = await axios.get(url, headers);
                 reset(data); // Populate the form with the fetched data
                 setLoading(false); // إنهاء التحميل بعد جلب البيانات
             } catch (error) {
@@ -48,7 +48,7 @@ const Forms = () => {
 
     const onSubmit = async (res) => {
         try {
-            const { data } = await axios.put(url, res, { headers: { "x-auth-token": token } });
+            const { data } = await axios.put(url, res, headers);
             setMessage({ message: 'تم تحديث المعلومات بنجاح.', type: 'success' });
         } catch (error) {
             console.error('Error updating profile:', error);

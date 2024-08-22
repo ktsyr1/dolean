@@ -13,10 +13,10 @@ const Signup = () => {
     const onSubmit = async (data) => {
         try {
             // استبدل هذا بعنوان API الفعلي الخاص بك
-            const url = `${config.api}/auth`;
+            const url = `${config.api}/auth/signup`;
             axios.post(url, data)
                 .then((data) => {
-                    Cookies.set('x-auth-token', data.data?.token, { expires: 1 })
+                    Cookies.set('authorization', data.data?.token, { expires: 1 })
                     location.replace("/")
                 })
         } catch (error) {

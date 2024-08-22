@@ -1,7 +1,6 @@
 
 import OpenAI from 'openai';
 
-// console.log(process.env.nvidiaApiKey , openai);
 export async function Ai(content) {
 
     const openai = new OpenAI({

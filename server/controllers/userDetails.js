@@ -33,7 +33,6 @@ export const UserDetailsFilter = async (req, res) => {
     }
 
     // Add more filters as needed
-    console.log(query);
     try {
         const filteredCourses = await UserDetails.find(query)
             .select("fullName phone nationality")

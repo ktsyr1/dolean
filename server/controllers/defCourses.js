@@ -13,9 +13,7 @@ context syntax markdown
 Reply all format json
 `
 export const defCoursesPreprocessing = async (req, res) => {
-    console.log(req.query.id);
     let defCourses = await DefCourses.findOne({ _id: req.params.id })
-    console.log(defCourses);
     if (defCourses) {
         
         let { title, location, context } = defCourses

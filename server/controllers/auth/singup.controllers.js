@@ -46,7 +46,6 @@ export default async function signUp(req, res) {
             .status(201)
             .json({ message: "User Created Successfully", token });
     } catch (error) {
-        console.log(error.message);
         return res.status(500).json({ message: "Error creating user" });
     }
 };

@@ -4,7 +4,7 @@ import Cookies from "js-cookie"
 const Nav = () => {
     let menu = useRef()
     let close = () => menu.current.classList.toggle("hidden")
-    let islogin = Cookies.get("x-auth-token")
+    let islogin = Cookies.get("authorization")
     let isAdmin = Cookies.get("isAdmin")
     let toAdmin = isAdmin ? "/admin" : "/profile"
     return (

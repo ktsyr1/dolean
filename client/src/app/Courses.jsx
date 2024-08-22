@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import config, { headers } from '../config';
+import Spinner from '../components/Element/Spinner';
 
 let Coursecard = () => {
     const [data, setData] = useState(null);
@@ -13,7 +14,7 @@ let Coursecard = () => {
             .catch(error => console.error('Error fetching course data:', error));
     }, []);
 
-    if (!data) return <></>
+    if (!data) return <Spinner />
     return (
         <div className="max-w-[1000px] w-full mx-auto p-4 text-zinc-800">
             <div className='flex flex-col lg:justify-between justify-center w-full'>

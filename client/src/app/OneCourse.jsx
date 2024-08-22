@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import config, { headers } from '../config';
 import { useParams } from 'react-router-dom';
 import MarkdownIt from 'markdown-it';  // استيراد مكتبة Markdown-it
+import Spinner from '../components/Element/Spinner';
 
 
 export default function OneCourse() {
     const [data, setData] = useState(null);
     const { id } = useParams();
-    console.log({ id });
     const md = new MarkdownIt();  // إنشاء كائن Markdown-it
     useEffect(() => {
         // افترض أنك تستدعي API للحصول على بيانات المستخدم
@@ -17,7 +17,7 @@ export default function OneCourse() {
             .catch(error => console.error('Error fetching course data:', error));
     }, [id]);
 
-    if (!data) return <></>
+    if (!data) return <Spinner />
     let { title, context, links, keys, location, age, nationality, price, image } = data;
     let priceText = price > 0 ? `${price} ل.ل` : price == 0 ? "مجاناً" : "غير معروف"
     // تحويل Markdown إلى HTML باستخدام markdown-it

@@ -3,7 +3,7 @@ import Cookies from "js-cookie"
 
 
 let Hero = () => {
-    let islogin = Cookies.get("x-auth-token")
+    let islogin = Cookies.get("authorization")
     return (
         <section className="bg-white dark:bg-gray-900 flex flex-col-reverse items-center justify-between md:flex-row py-8 p-4 w-full">
             <div className=" px-4 mx-auto max-w-screen-xl *:text-start lg:pl-12">
