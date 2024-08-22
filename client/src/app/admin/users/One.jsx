@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import config, { headers } from '../../../config';
 import { useParams } from 'react-router-dom';
+import { Header } from '../layoutAdmin';
 
 const OneUser = () => {
     const [user, setUser] = useState(null);

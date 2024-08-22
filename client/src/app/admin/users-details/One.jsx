@@ -43,7 +43,7 @@ function ProfileCard({ Governorate, city, nationality, educationLevel, specializ
                 <div className="px-14 py-4 text-gray-700 *:my-2">
                     <p className='w-full text-xl font-bold text-center'> {fullName} </p>
                     <p className='w-full text-xl font-bold text-center my-0'> {phone} </p>
-                    <a className='w-full text-xl font-bold text-center bg-primary-500 rounded-lg text-white flex justify-center' href={`https://wa.me/${phone.replace(/\s+/g, '')}`}>مراسلة</a>
+                    <a className='text-xl font-bold text-center bg-primary-500 rounded-lg text-white flex justify-center p-2 w-min px-12 m-auto' href={`https://wa.me/${phone.replace(/\s+/g, '')}`}>مراسلة</a>
                     <p><strong>الموقع:</strong> {Governorate}, {city}</p>
                     <p><strong>الجنسية:</strong> {Data("nationality", nationality)}</p>
                     <p><strong>مستوى التعليم:</strong> {Data("educationOptions", educationLevel)}</p>
