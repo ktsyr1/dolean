@@ -8,11 +8,11 @@ const Nav = () => {
     let isAdmin = Cookies.get("isAdmin")
     let toAdmin = isAdmin ? "/admin" : "/profile"
     return (
-        <nav className="bg-white dark:bg-gray-800 antialiased fixed w-full z-50">
+        <nav className="bg-white ddark:bg-gray-800 antialiased fixed w-full z-50">
             <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
                 <div className="flex items-center justify-between">
 
-                    <button type="button" className="inline-flex lg:hidden items-center justify-center hover:bg-gray-100 rounded-md dark:hover:bg-gray-700 p-2 text-gray-900 dark:text-white" onClick={close}>
+                    <button type="button" className="inline-flex lg:hidden items-center justify-center hover:bg-gray-100 rounded-md ddark:hover:bg-gray-700 p-2 text-gray-900 ddark:text-white" onClick={close}>
                         <span className="sr-only">Open Menu</span>
                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h14" />
@@ -53,8 +53,8 @@ const Nav = () => {
 
                 </div>
 
-                <div id="menu-app" className="bg-gray-50 fixed w-[300px] dark:bg-gray-700 dark:border-gray-600 border border-gray-200 rounded-lg py-3 hidden lg:hidden px-4 mt-4" ref={menu} onClick={close}  >
-                    <ul className="text-gray-900 text-sm font-medium dark:text-white space-y-3 *:py-2">
+                <div id="menu-app" className="bg-gray-50 fixed w-[300px] ddark:bg-gray-700 ddark:border-gray-600 border border-gray-200 rounded-lg py-3 hidden lg:hidden px-4 mt-4" ref={menu} onClick={close}  >
+                    <ul className="text-gray-900 text-sm font-medium ddark:text-white space-y-3 *:py-2">
                         {MenuData.map((link, index) => <ItemMenu key={index} data={link} />)}
                     </ul>
                     <CastamLink to="/apply" classnames="my-4 w-full " text="اخبرنا عنك" />
@@ -66,12 +66,12 @@ const Nav = () => {
 };
 
 let CastamLink = (props) => (
-    <Link className={`inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 ${props.classnames}`} {...props}> {props.text} </Link>
+    <Link className={`inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 ddark:focus:ring-primary-900 ${props.classnames}`} {...props}> {props.text} </Link>
 )
 export function ItemMenu({ data, className }) {
     return (
         <li>
-            <Link to={data.href} className={`hover:text-primary-700 font-medium dark:hover:text-primary-500 ${className}`}>
+            <Link to={data.href} className={`hover:text-primary-700 font-medium ddark:hover:text-primary-500 ${className}`}>
                 {data.text}
             </Link>
         </li>

@@ -38,7 +38,7 @@ const AddDefCourse = () => {
             <div className="w-full flex flex-col items-center max-w-md mx-auto p-4 rtl text-slate-900">
                 {!submitted ? (
                     <form className="space-y-4 md:space-y-6 w-full" onSubmit={handleSubmit(onSubmit)}>
-                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
+                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ddark:text-white text-center">
                             إضافة دورة
                         </h1>
 
@@ -73,7 +73,7 @@ const AddDefCourse = () => {
 
                         <button
                             type="submit"
-                            className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                            className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ddark:bg-primary-600 ddark:hover:bg-primary-700 ddark:focus:ring-primary-800"
                         >
                             إضافة الدورة
                         </button>
@@ -85,8 +85,8 @@ const AddDefCourse = () => {
                         )}
                     </form>
                 ) : (
-                    <div className="flex flex-col items-center justify-center w-full max-w-md p-6 bg-white text-center dark:bg-gray-800 rounded-lg shadow-xl">
-                        <div className="w-16 h-16 mb-6 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
+                    <div className="flex flex-col items-center justify-center w-full max-w-md p-6 bg-white text-center ddark:bg-gray-800 rounded-lg shadow-xl">
+                        <div className="w-16 h-16 mb-6 rounded-full bg-green-100 ddark:bg-green-900 flex items-center justify-center">
                             <div className="flex items-center justify-center">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@ const AddDefCourse = () => {
                                     strokeWidth="2"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                    className="lucide lucide-circle-check-big w-10 h-10 text-green-500 dark:text-green-400"
+                                    className="lucide lucide-circle-check-big w-10 h-10 text-green-500 ddark:text-green-400"
                                 >
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                                     <path d="m9 11 3 3L22 4"></path>
@@ -106,11 +106,11 @@ const AddDefCourse = () => {
                             </div>
                             <span className="sr-only">نجاح</span>
                         </div>
-                        <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">تمت إضافة الدورة بنجاح!</h2>
-                        <p className="mb-6 text-lg text-gray-600 dark:text-gray-300">شكراً لك على إضافة الدورة. مساهمتك تثري مجتمعنا التعليمي.</p>
+                        <h2 className="mb-4 text-2xl font-bold text-gray-900 ddark:text-white">تمت إضافة الدورة بنجاح!</h2>
+                        <p className="mb-6 text-lg text-gray-600 ddark:text-gray-300">شكراً لك على إضافة الدورة. مساهمتك تثري مجتمعنا التعليمي.</p>
                         <button
                             onClick={closeModal}
-                            className="py-2 px-4 text-sm font-medium text-white rounded-lg bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 transition duration-300"
+                            className="py-2 px-4 text-sm font-medium text-white rounded-lg bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 ddark:focus:ring-blue-800 transition duration-300"
                         >
                             إضافة دورة جديدة
                         </button>

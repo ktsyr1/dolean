@@ -9,31 +9,6 @@ import config from '../../../config';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-
-let def = {
-    "fullName": "sdfs",
-    "phone": "70723177",
-    "births": {
-        "$date": "1999-11-11T00:00:00.000Z"
-    },
-    "Governorate": "Beirut",
-    "city": "zahle",
-    "nationality": "Palestinian",
-    "interests": "سيشبيسب",
-    "educationLevel": "Secondary",
-    "classes": "سيبس",
-    "englishLevel": "Advanced",
-    "computerUsage": "Intermediate",
-    "freeCourses": true,
-    "paidCourses": false,
-    "paidCoursesLimit": null,
-    "requiredCourses": [],
-    "deleteState": false,
-    "create_at": {
-        "$date": "2024-08-18T17:45:07.690Z"
-    },
-    "__v": 0
-}
 const Join = () => {
 
     const methods = useForm();

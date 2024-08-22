@@ -118,6 +118,9 @@ const options = {
                         nationality: {
                             type: 'string'
                         },
+                        work: {
+                            type: 'string'
+                        },
                         interests: {
                             type: 'string'
                         },

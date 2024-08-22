@@ -25,7 +25,7 @@ export default function OneCourse() {
         <div className="bg-white pt-0 mt-0 rounded-lg md:p-6 m-4 w-full flex flex-col md:w-[70%]">
             <div className="bg-white rounded-lg md:px-6 md:mx-4 w-full flex flex-col lg:flex-row  justify-start">
                 {image.length > 1
-                    ? <img className=" m-auto w-auto rounded-lg md:max-h-[300px] md:w-fit md:my-4" src={image} alt={title} />
+                    ? <img loading='lazy' className=" m-auto w-auto rounded-lg md:max-h-[300px] md:w-fit md:my-4" src={image} alt={title} />
                     : <div className='min-h-[220px] min-w-[300px] bg-gray-200 rounded-md flex justify-center items-center text-gray-500'>لا يوجد صورة</div>}
                 <div className="flex flex-col m-4">
                     <h2 className="text-2xl font-bold mb-4 lg:max-w-[350px] flex justify-center items-center text-gray-500 ">{title}</h2>

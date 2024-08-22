@@ -37,7 +37,7 @@ const NewPassword = () => {
         <FormProvider {...methods}>
             <div>
                 <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(onSubmit)}>
-                    <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
+                    <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ddark:text-white text-center">
                         تعيين كلمة مرور جديدة
                     </h1>
 
@@ -73,7 +73,7 @@ const NewPassword = () => {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                        className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ddark:bg-primary-600 ddark:hover:bg-primary-700 ddark:focus:ring-primary-800"
                     >
                         {loading ? 'جاري التعيين...' : 'تعيين كلمة المرور'}
                     </button>
@@ -85,8 +85,8 @@ const NewPassword = () => {
                     </p>
                 )}
 
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400 my-4">
-                    لديك حساب بالفعل؟ <a href="/auth?route=login" className="font-medium text-primary-600 hover:underline dark:text-primary-500">تسجيل الدخول</a>
+                <p className="text-sm font-light text-gray-500 ddark:text-gray-400 my-4">
+                    لديك حساب بالفعل؟ <a href="/auth?route=login" className="font-medium text-primary-600 hover:underline ddark:text-primary-500">تسجيل الدخول</a>
                 </p>
             </div>
         </FormProvider>

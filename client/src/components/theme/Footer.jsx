@@ -3,9 +3,9 @@ import { ItemMenu, MenuData } from "./Nav";
 
 const Footer = () => {
     return (
-        <footer className="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
+        <footer className="p-4 bg-white md:p-8 lg:p-10 ddark:bg-gray-800">
             <div className="mx-auto max-w-screen-xl text-center">
-                <Link to="/" className="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
+                <Link to="/" className="flex justify-center items-center text-2xl font-semibold text-gray-900 ddark:text-white">
                     <svg width="52" height="31" viewBox="0 0 52 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M39.895 15.4281H47.019C47.5564 15.4281 47.9637 15.2374 48.241 14.8561C48.4664 14.5094 48.579 14.1887 48.579 13.8941C48.579 13.8074 48.5617 13.6947 48.527 13.5561L46.447 5.99008L49.463 5.13208L51.569 12.7501C51.6557 13.1834 51.699 13.5647 51.699 13.8941C51.699 15.0034 51.361 15.9741 50.685 16.8061C50.2344 17.3607 49.6884 17.7941 49.047 18.1061C48.4057 18.4181 47.7297 18.5741 47.019 18.5741H39.895V15.4281Z" fill="#121417" />
                         <path d="M31.1373 18.574C30.7039 18.574 30.3313 18.4267 30.0193 18.132C29.7073 17.82 29.5513 17.4474 29.5513 17.014C29.5513 16.5634 29.7073 16.1907 30.0193 15.896C30.3139 15.584 30.6866 15.428 31.1373 15.428H32.4893C32.8013 15.428 33.0613 15.324 33.2693 15.116C33.4946 14.8907 33.6073 14.622 33.6073 14.31V0.426025H36.7533V14.31C36.7533 15.0727 36.5626 15.7834 36.1813 16.442C35.7999 17.1007 35.2799 17.6207 34.6213 18.002C33.9799 18.3834 33.2779 18.574 32.5153 18.574H31.1373Z" fill="#121417" />
@@ -17,12 +17,12 @@ const Footer = () => {
                     </svg>
 
                 </Link>
-                <p className="my-6 text-gray-500 dark:text-gray-400">منصة تعليمية تربط الطلاب بالدورات المناسبة لهم عبر البريد الإلكتروني والواتساب، </p>
+                <p className="my-6 text-gray-500 ddark:text-gray-400">منصة تعليمية تربط الطلاب بالدورات المناسبة لهم عبر البريد الإلكتروني والواتساب، </p>
                 <ul className="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
-                    {/* <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white"> */}
+                    {/* <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 ddark:text-white"> */}
                     {MenuData.map((link, index) => <ItemMenu key={index} data={link} />)}
                 </ul>
-                <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                <span className="text-sm text-gray-500 sm:text-center ddark:text-gray-400">
                     © 2024
                     <Link to="/" className="hover:underline"></Link> دلني. جميع الحقوق محفوظة. </span>
             </div>

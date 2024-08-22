@@ -26,7 +26,7 @@ const PreferenceField = ({ label, name, validation }) => {
             <input
                 aria-describedby={name}
                 type="checkbox"
-                className="w-4 mx-2 h-4 border hidden border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                className="w-4 mx-2 h-4 border hidden border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 ddark:bg-gray-700 ddark:border-gray-600 ddark:focus:ring-primary-600 ddark:ring-offset-gray-800"
                 {...register(name, validation)}
                 ref={init}
             />
@@ -75,11 +75,11 @@ const Preferences = () => {
                         id="terms"
                         aria-describedby="terms"
                         type="checkbox"
-                        className="w-4 mx-2 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                        className="w-4 mx-2 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 ddark:bg-gray-700 ddark:border-gray-600 ddark:focus:ring-primary-600 ddark:ring-offset-gray-800"
                         {...register('terms', { required: 'يجب الموافقة على الشروط والأحكام' })}
                     />
                     <div className="ml-3 text-sm">
-                        <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">أوافق على <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500" to="/p/terms-conditions">الشروط والأحكام</Link></label>
+                        <label htmlFor="terms" className="font-light text-gray-500 ddark:text-gray-300">أوافق على <Link className="font-medium text-primary-600 hover:underline ddark:text-primary-500" to="/p/terms-conditions">الشروط والأحكام</Link></label>
                     </div>
                 </div>
                 {errors.terms && <p className="text-red-500 text-sm mt-1">{errors.terms.message}</p>}

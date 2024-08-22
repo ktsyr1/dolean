@@ -25,6 +25,7 @@ export default model('UserDetails', new Schema({
     paidCoursesLimit: { type: Number },  // سقف المدفوعات للدورات المدفوعة
     
     requiredCourses: [String],  // الدورات المطلوبة
+    work: String,  // الدورات المطلوبة
     deleteState: { type: Boolean, default: false }
     // add work and gander
 }))

@@ -26,7 +26,7 @@ export default function OneCourses() {
                     تعديل الدورة
                 </button>
 
-                <button onClick={deleteOne} className="text-red-700 mr-4 sm:mt-0 border border-red-700  hover:bg-red-500 hover:text-white focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"                             >
+                <button onClick={deleteOne} className="text-red-700 mr-4 sm:mt-0 border border-red-700  hover:bg-red-500 hover:text-white focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 ddark:bg-primary-600 ddark:hover:bg-primary-700 focus:outline-none ddark:focus:ring-primary-800 flex items-center justify-center"                             >
                     حذف الدورة
                 </button>
             </div>
