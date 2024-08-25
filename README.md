@@ -46,6 +46,10 @@ git push -u origin <new-branch>
 - دراسة شاملة للمراكز التعليمة كلها في لبنان
 - خورزمية تقسيم المدن الى مناطق 
 - مشكلة بين المكان والاون لاين 
+- لقيت مشكلة قاتلة بالمشروع او نقطة ضعف ,الي هي انو الشخص ما بيحط غير دورة حتى ٣ دورات واذا قدرنا نوصل لطريقة نسحب كل اهتمامات الشخص هون الهدف الي لازم نوصل اله
+- قانون GDPR
+- اختيار السنة مشكلة
+- مستوى الخبرة في الحاسب ذكرها كتخصص
 ```
 
 
@@ -61,3 +65,34 @@ Reply all format json
 
 تحليل النصوص في الردود القادمة وتحويلها  وتحوليه الى json بنفس هذه البنية أعلاه
 انتظرني
+
+Backend Point
+- cashing
+- Load Balancer
+- Containerization
+- Microservices
+- Scalability
+- WebSocket
+- ORM (Object-Relational Mapping)
+- Session Management 
+- SSL/TLS
+- Endpoint
+- Rate Limiting
+- Webhook 
+- Load Testing
+- Hotfix
+- Release
+- Rollback
+- Data Encryption
+- Logging
+- Error Handling
+- Monitoring
+
+folders
+|- server
+|--|- app.js
+|--|- package.json # express.js
+|--|- ...
+|- client
+|--|- package.json # Vite.js => react
+|--|- ...
