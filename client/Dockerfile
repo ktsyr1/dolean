@@ -1,5 +1,5 @@
 # استخدام صورة Node.js الرسمية كأساس
-FROM node:14
+FROM node:20
 
 # تعيين دليل العمل في الحاوية
 WORKDIR /usr/src/app
@@ -20,7 +20,7 @@ RUN npm run build
 RUN npm install -g serve
 
 # كشف المنفذ الذي سيستمع عليه التطبيق
-EXPOSE 5000
+EXPOSE 8080
 
 # تشغيل التطبيق
-CMD ["serve", "-s", "dist", "-l", "3000"]
+CMD [ "npm", "run", "dev" ]
