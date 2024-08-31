@@ -5,7 +5,7 @@ import SendMessages from './SendMessages';
 import { Header } from '../layoutAdmin';
 export let CourseContext = createContext({})
 const AiCourse = () => {
-    const [step, setStep] = useState(1);
+    const [step, setStep] = useState(3);
     const [Course, setCourse] = useState(1);
 
     const nextStep = () => setStep(step + 1);
@@ -26,7 +26,7 @@ const AiCourse = () => {
     return (
         <CourseContext.Provider value={{ Course, setCourse }} >
             <div >
-            <Header title={"اضافة دوراة"} to="/admin/courses" />
+                <Header title={"اضافة دوراة"} to="/admin/courses" />
 
                 <View />
             </div>

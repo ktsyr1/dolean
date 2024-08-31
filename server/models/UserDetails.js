@@ -7,8 +7,8 @@ export default model('UserDetails', new Schema({
 
     fullName: { type: String, required: true },  // اسم المستخدم الكامل
     phone: { type: String, required: true },  // رقم الهاتف
-    births: { type: Date, required: true },  // الجنسية
-    Governorate: { type: String, required: true },  // المحافظة
+    births: { type: Number, required: true },  // الجنسية
+    District: { type: String, required: true },  // المحافظة
     city: { type: String, required: true },  // المدينة
     nationality: { type: String, required: true },  // الجنسية
     interests: String, // الاهتمامات
@@ -30,4 +30,4 @@ export default model('UserDetails', new Schema({
     // add work and gander
 }))
 
-// { user_id, Governorate, city, nationality, requiredCourses, educationLevel, specialization, classes, graduationYear, englishLevel, computerUsage, freeCourses, paidCourses, paidCoursesLimit, noteInterests, interests, phone, fullName } 
+// { user_id, District, city, nationality, requiredCourses, educationLevel, specialization, classes, graduationYear, englishLevel, computerUsage, freeCourses, paidCourses, paidCoursesLimit, noteInterests, interests, phone, fullName } 

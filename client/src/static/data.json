@@ -111,7 +111,7 @@
             "graduationYear": false
         }
     ],
-    "Governorate": [
+    "District": [
         {
             "value": "",
             "label": "حدد المحافظة"
@@ -163,12 +163,12 @@
             "label": "لبناني"
         },
         {
-            "value": "Palestinian",
-            "label": "فلسطيني"
-        },
-        {
             "value": "Syrian",
             "label": "سوري"
+        },
+        {
+            "value": "Palestinian",
+            "label": "فلسطيني"
         },
         {
             "value": "Other",

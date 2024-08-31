@@ -93,7 +93,7 @@ const options = {
                 },
                 UserDetails: {
                     type: 'object',
-                    required: ['fullName', 'phone', 'births', 'Governorate', 'city', 'nationality', 'educationLevel', 'englishLevel', 'computerUsage', 'freeCourses', 'paidCourses'],
+                    required: ['fullName', 'phone', 'births', 'District', 'city', 'nationality', 'educationLevel', 'englishLevel', 'computerUsage', 'freeCourses', 'paidCourses'],
                     properties: {
                         create_at: {
                             type: 'string',
@@ -109,7 +109,7 @@ const options = {
                             type: 'string',
                             format: 'date'
                         },
-                        Governorate: {
+                        District: {
                             type: 'string'
                         },
                         city: {

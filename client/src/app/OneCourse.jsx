@@ -4,6 +4,7 @@ import config, { headers } from '../config';
 import { useParams } from 'react-router-dom';
 import MarkdownIt from 'markdown-it';  // استيراد مكتبة Markdown-it
 import Spinner from '../components/Element/Spinner';
+import dataSet from '../static/data.json';
 
 
 export default function OneCourse() {
@@ -21,6 +22,7 @@ export default function OneCourse() {
     let { title, context, links, keys, location, age, nationality, price, image } = data;
     let priceText = price > 0 ? `${price} ل.ل` : price == 0 ? "مجاناً" : "غير معروف"
     // تحويل Markdown إلى HTML باستخدام markdown-it
+    let Nationality = nationality == "All" ? "جميع الجنسيات" : dataSet.nationality.filter(a => a.value == nationality)[0]?.label
     return (
         <div className="bg-white pt-0 mt-0 rounded-lg md:p-6 m-4 w-full flex flex-col md:w-[70%]">
             <div className="bg-white rounded-lg md:px-6 md:mx-4 w-full flex flex-col lg:flex-row  justify-start">
@@ -32,8 +34,8 @@ export default function OneCourse() {
                     <div className="  *:my-4">
                         <Row Icon={Icons.price} data={priceText} />
                         <Row Icon={Icons.location} data={location} />
-                        {age?.start && <Row Icon={Icons.age} data={`${age?.start} - ${age?.end} سنة`} />}
-                        <Row Icon={Icons.nationality} data={nationality} />
+                        {age?.start && <Row Icon={Icons.age} data={`من عمر ${age?.start}  ${age?.end ? " حتى " + age?.end + " سنة" : ""} `} />}
+                        <Row Icon={Icons.nationality} data={Nationality} />
                     </div>
                 </div>
             </div>

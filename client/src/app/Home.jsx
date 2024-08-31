@@ -3,15 +3,18 @@ import Hero from './landing/Hero';
 import Coureslist from './landing/coureslist';
 import PricingSection from './landing/price';
 import AddDefCourses from './landing/defcourse';
+import FAQAccordion from '../components/theme/FAQ';
 
-const Home = () => { 
+const Home = () => {
     return (
         <div className="w-full flex flex-col justify-center items-center ">
             <Hero />
             <Coureslist />
             <AddDefCourses />
+
             {/* <Btn to="/add-course" text="اضافة كورس" /> */}
             <PricingSection />
+            <FAQAccordion />
         </div>
     );
 };

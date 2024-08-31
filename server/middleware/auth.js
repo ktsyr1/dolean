@@ -1,50 +1,56 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
-const initIslogin = async (req, res, next) => {
+
+const initIslogin = async (req) => {
     const authHeader = req.header('Authorization');
-    if (!authHeader) return res.status(401).json({ message: 'Access denied. No token provided.' });
+    if (!authHeader) throw new Error('Access denied. No token provided.');
 
-    const token = authHeader.split(' ')[1]; // استخراج التوكن بعد "Bearer"
+    const token = authHeader.split(' ')[1]; // Extract token after "Bearer"
 
-    if (!token) return res.status(401).json({ message: 'Access denied. Invalid token format.' });
+    if (!token) throw new Error('Access denied. Invalid token format.');
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const user = await User.findById(decoded.userId, 'email role')
-        if (!user) return res.status(404).json({ message: 'User not found.' });
+        if (!user) throw new Error('User not found.');
 
         req.user = user;
         return user;
     } catch (error) {
-        return res.status(403).json({ message: 'Invalid token.' });
+        throw new Error('Invalid token.');
     }
 };
 
-
 const isLogin = async (req, res, next) => {
-    let user = await initIslogin(req, res, next)
-    if (user) {
+    try {
+        await initIslogin(req);
         next();
-    } else {
-        res.status(403).json({ states: false, message: 'Access denied. User role required.' });
+    } catch (error) {
+        res.status(403).json({ states: false, message: error.message });
     }
 };
 
 const isUser = async (req, res, next) => {
-    let user = await initIslogin(req, res, next)
-    if (user && user.role === 'user') {
+    try {
+        const user = await initIslogin(req);
+        if (user.role !== 'user') {
+            throw new Error('Access denied. User role required.');
+        }
         next();
-    } else {
-        res.status(403).json({ states: false, message: 'Access denied. User role required.' });
+    } catch (error) {
+        res.status(403).json({ states: false, message: error.message });
     }
 };
 
 const isAdmin = async (req, res, next) => {
-    let user = await initIslogin(req, res, next)
-    if (user && user.role === 'admin') {
+    try {
+        const user = await initIslogin(req);
+        if (user.role !== 'admin') {
+            throw new Error('Access denied. Admin role required.');
+        }
         next();
-    } else {
-        res.status(403).json({ states: false, message: 'Access denied. Admin role required.' });
+    } catch (error) {
+        res.status(403).json({ states: false, message: error.message });
     }
 };
 

@@ -7,7 +7,7 @@ import { UserDetailsFilter } from '../controllers/userDetails.js';
 const app = express.Router();
 
 const UserDetailsController = new dynamicControllers(UserDetails);
-app.use(isAdmin)
+// app.use(isAdmin)
 /**
  * @swagger
  * /api/admin/user-details:

@@ -14,7 +14,7 @@ const Login = () => {
             .then((data) => {
                 Cookies.set('authorization', data.data?.token, { expires: 1 })
                 Cookies.set('isAdmin', data.data?.isAdmin, { expires: 1 })
-                location.replace("/")
+                location.reload()
             })
         // يمكنك هنا إضافة منطق تسجيل الدخول الخاص بك
     };

@@ -27,7 +27,7 @@ const OneUsersDetails = () => {
 };
 export default OneUsersDetails;
 
-function ProfileCard({ Governorate, city, nationality, educationLevel, specialization, graduationYear, englishLevel, computerUsage, phone, fullName }) {
+function ProfileCard({ District, city, nationality, educationLevel, specialization, graduationYear, englishLevel, computerUsage, phone, fullName }) {
     const Data = (key, value) => data[key]?.find(a => a.value === value)?.label || value;
 
     return (
@@ -44,7 +44,7 @@ function ProfileCard({ Governorate, city, nationality, educationLevel, specializ
                     <p className='w-full text-xl font-bold text-center'> {fullName} </p>
                     <p className='w-full text-xl font-bold text-center my-0'> {phone} </p>
                     <a className='text-xl font-bold text-center bg-primary-500 rounded-lg text-white flex justify-center p-2 w-min px-12 m-auto' href={`https://wa.me/${phone.replace(/\s+/g, '')}`}>مراسلة</a>
-                    <p><strong>الموقع:</strong> {Governorate}, {city}</p>
+                    <p><strong>الموقع:</strong> {District}, {city}</p>
                     <p><strong>الجنسية:</strong> {Data("nationality", nationality)}</p>
                     <p><strong>مستوى التعليم:</strong> {Data("educationOptions", educationLevel)}</p>
                     {specialization && <p><strong>التخصص:</strong> {specialization}</p>}

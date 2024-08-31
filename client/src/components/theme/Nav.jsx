@@ -50,15 +50,12 @@ const Nav = () => {
                                 </g></svg>
                         </Link>
                     </div>
-
                 </div>
-
                 <div id="menu-app" className="bg-gray-50 fixed w-[300px] ddark:bg-gray-700 ddark:border-gray-600 border border-gray-200 rounded-lg py-3 hidden lg:hidden px-4 mt-4" ref={menu} onClick={close}  >
                     <ul className="text-gray-900 text-sm font-medium ddark:text-white space-y-3 *:py-2">
                         {MenuData.map((link, index) => <ItemMenu key={index} data={link} />)}
                     </ul>
                     <CastamLink to="/apply" classnames="my-4 w-full " text="اخبرنا عنك" />
-
                 </div>
             </div>
         </nav>
@@ -78,8 +75,8 @@ export function ItemMenu({ data, className }) {
     )
 }
 export const MenuData = [
-    { href: "/#", text: "الرئيسية" },
+    { href: "/", text: "الرئيسية" },
     { href: "/courses", text: "الدورات" },
-    { href: "/#about", text: "من نحن" },
+    // { href: "/#price", text: "التسعيرة" },
 ];
 export default Nav;

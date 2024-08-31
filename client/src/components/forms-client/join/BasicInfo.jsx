@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import FormField from '../../Element/FormField';
 // import { useFormContext } from 'react-hook-form';
-import { Governorate, nationality } from '../../../static/data.json';
+import { nationality } from '../../../static/data.json';
+import District from '../../../static/District.json';
+import { useFormContext } from 'react-hook-form';
 
 const BasicInfo = () => {
-    // const { register, formState: { errors } } = useFormContext(); // retrieve all hook methods
+    const { watch } = useFormContext(); // retrieve all hook methods
+    let [district, setDistrict] = useState(() => {
+        let list = Array.from(new Set(District.map(a => (a.District))))
+        let all = Array.from(list.map(a => ({ value: a, label: a })))
+        return [{ "value": "", "label": "حدد المحافظة" }, ...all]
+    })
+    let inputDistrict = watch("District")
+    function Cities() {
+        let all
+        if (!inputDistrict) all = Array.from(District.map(a => ({ value: a.name, label: `${a.District} - ${a.name}` })))
+        else all = Array.from(District.filter(a => a.District == inputDistrict && a)
+            .map(a => ({ value: a.name, label: `${a.District} / ${a.name}` })))
 
+        return [{ "value": "", "label": "حدد المدينة" }, ...all]
+
+    }
+    let [cities, setcities] = useState(Cities)
+    // console.log(cities);
+    useEffect(() => {
+        let city = Cities()
+        console.log({ city });
+        if (inputDistrict) setcities(city)
+    }, [inputDistrict])
     return (
         <div>
             <h3 className="text-lg font-bold">المعلومات الأساسية</h3>
@@ -46,17 +69,19 @@ const BasicInfo = () => {
             />
             <FormField
                 label="المحافظة"
-                name="Governorate"
+                name="District"
                 validation={{ required: "مكان السكن الحالي مطلوب" }}
                 as="select"
-                options={Governorate}
+                options={district}
             />
-            <FormField
+            {inputDistrict && <FormField
                 label="المدينة"
                 name="city"
                 validation={{ required: "المدينة مطلوبة" }}
+                // options={cities}
+                // as="select"
                 placeholder="حدد المدينة"
-            />
+            />}
             <FormField
                 label="الجنسية"
                 name="nationality"

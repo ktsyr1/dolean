@@ -22,6 +22,7 @@ import OneUsersDetails from './users-details/One'
 import AiCourse from './ai-course/page';
 import OneCourses from './courses/One';
 import Spinner from '../../components/Element/Spinner';
+import WaPage from './wa/page';
 
 export default function AdminLayout() {
 
@@ -30,6 +31,7 @@ export default function AdminLayout() {
             <Routes>
                 <Route index element={<HomeAdmin />} />
                 {/* Uncomment and add additional routes as needed */}
+                <Route path="/wa" element={<WaPage />} />
                 <Route path="/users" element={<AdminUsers />} />
                 <Route path="/users/:id" element={<OneUser />} />
                 <Route path="/users-details" element={<AdminUsersDetails />} />
@@ -50,14 +52,16 @@ function Layout({ children }) {
     let token = Cookies.get("authorization")
     useMemo(() => {
         if (token) {
+
             return axios.get(`${config.api}/auth`, headers)
                 .then(({ data }) => data?.isAdmin ? setIsAuth(true) : setIsAuth(false))
+                .catch(err => setIsAuth(false))
         } else setIsAuth(false)
     }, [])
 
     if (isAuth == false) return <Auth />
     else if (isAuth) return (
-        <div className="  flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden max-w-[800px]"  >
+        <div className="  flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden smax-w-[800px]"  >
             {children}
         </div>
     )

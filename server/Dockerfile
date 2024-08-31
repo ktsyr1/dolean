@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # تشغيل التطبيق
-CMD ["node", "app.js"]
+CMD [ "npm", "run", "dev" ]

@@ -25,8 +25,6 @@ const Join = () => {
         <Preferences />
     ];
 
-    console.log(route);
-
     const onSubmit = data => {
         console.log(data);
         let url = `${config.api}/student/apply`;

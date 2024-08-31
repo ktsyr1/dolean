@@ -8,7 +8,7 @@ export default function HomeAdmin() {
     const [admin, set] = useState([])
     let token = Cookies.get("authorization")
     useEffect(() => {
-        axios.get(`${config.api}/admin`,headers)
+        axios.get(`${config.api}/admin`, headers)
             .then(({ data }) => set(data))
     }, [])
 
@@ -19,6 +19,7 @@ export default function HomeAdmin() {
         { title: "الدورات", herf: "/admin/courses", value: admin.courses },
         { title: "تفاصيل المستخدمين ", herf: "/admin/users-details", value: admin.userDetails },
         { title: "المستخدمين", herf: "/admin/users", value: admin.users },
+        { title: "واتساب", herf: "/admin/wa", value: 0 },
     ]
     return (
         <div className=" flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden max-w-[800px]"  >
