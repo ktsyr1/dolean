@@ -51,20 +51,20 @@ const WaPage = () => {
             {step === 1 && (
                 <div className='flex flex-col justify-center items-center *:py-4'>
                     <Spinner />
-                    <p> إنشاء Instance جديد</p>
+                    <h2 className='font-bold'> إنشاء Instance جديد</h2>
                 </div>
             )}
 
             {step === 2 && (
                 <div className='flex flex-col justify-center items-center *:py-4'>
                     <Spinner />
-                    <p>  جلب QR Code</p>
+                    <h2 className='font-bold'>  جلب QR Code</h2>
                 </div>
             )}
 
             {step === 3 && qrCode && (
-                <div>
-                    <p>الخطوة الثالثة: عرض QR Code</p>
+                <div className='flex flex-col justify-center items-center *:py-4'>
+                    <h2 className='font-bold'> عرض QR Code</h2>
                     <img src={`${qrCode}`} alt="QR Code" />
                     <p>استخدم هذا الـ QR Code لتسجيل الدخول إلى WhatsApp Web</p>
                 </div>
