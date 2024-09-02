@@ -5,6 +5,7 @@ import Courses from "./Courses.js"
 import userDetails from "./userDetails.js"
 import { AdminStates } from '../controllers/admin.js';
 import { isAdmin } from '../middleware/auth.js';
+import Wa from './wa.js';
 const app = express();
 // localhost:5000/api/auth
 /**
@@ -47,10 +48,10 @@ const app = express();
  *         description: Server error
  */
 app.get('/', isAdmin, AdminStates);
-app.get('/', isAdmin, AdminStates);
 app.use('/users', users);
 app.use('/users-details', userDetails);
 app.use('/courses', Courses);
 app.use('/def-courses', DefCourses);
+app.use('/wa', Wa);
 
 export default app;

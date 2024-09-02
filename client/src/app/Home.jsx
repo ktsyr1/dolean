@@ -14,7 +14,7 @@ const Home = () => {
 
             {/* <Btn to="/add-course" text="اضافة كورس" /> */}
             <PricingSection />
-            <FAQAccordion />
+            {/* <FAQAccordion /> */}
         </div>
     );
 };

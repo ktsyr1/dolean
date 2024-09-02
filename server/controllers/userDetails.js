@@ -25,8 +25,9 @@ export const createUserDetails = async (req, res) => {
 export const UserDetailsFilter = async (req, res) => {
     try {
         // العثور على الدورة المطلوبة باستخدام الـ ID
+        console.log(req.params);
         const course = await Courses.findOne({ _id: req.params.id }).select("-context -keys");
-
+        console.log({ course });
         if (!course) return res.status(404).json({ message: "Course not found" });
 
         // بناء الاستعلام باستخدام find

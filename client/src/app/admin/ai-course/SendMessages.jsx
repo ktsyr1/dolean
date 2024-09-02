@@ -34,10 +34,10 @@ const SendMessages = ({ nextStep }) => {
             msg: res.msg
         }
         try {
-            const url = `${config.api}/admin/msg`;
+            const url = `${config.api}/admin/wa`;
             const { data } = await axios.post(url, init, headers);
             // await axios.post(url, data, headers);
-            nextStep();
+            // nextStep();
         } catch (error) {
             console.error('Error adding course:', error);
         }
