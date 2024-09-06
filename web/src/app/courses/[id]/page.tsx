@@ -3,11 +3,30 @@ import MarkdownIt from 'markdown-it';  // استيراد مكتبة Markdown-it
 import Spinner from '@/components/Element/Spinner';
 import dataSet from '@/static/data.json';
 
+
+export async function generateMetadata({ params: { id } }) {
+    let { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}/student/courses/${id}`)
+
+    return {
+        title: data.title,
+        description: 'حقق أهدافك التعليمية مع الدورات المصممة لك',
+        icons: [
+            {
+                rel: 'icon',
+                url: '/favicon.ico',
+                sizes: 'any',
+                type: 'image/x-icon',
+            },
+        ],
+        openGraph: {
+            title: data.title,
+            description: 'حقق أهدافك التعليمية مع الدورات المصممة لك',
+        },
+    }
+}
 export default async function OneCourse({ params: { id } }: any) {
     const md = new MarkdownIt();  // إنشاء كائن Markdown-it
-    // افترض أنك تستدعي API للحصول على بيانات المستخدم
-
-    console.log(`${process.env.NEXT_PUBLIC_API}/student/courses/${id}`);
+    // افترض أنك تستدعي API للحصول على بيانات المستخدم 
 
     let { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}/student/courses/${id}`)
 

@@ -8,22 +8,7 @@ this [all prompt](Ai-prompt.md)
 2. Jaber lweis
 3. Manar Alzorkan
 4. Malak Ka
-
-## tasks
-
-```bash
-# stap 1 
-git checkout main
-git pull ; cd client ; npm i 
-
-npm run dev  
-git checkout -b new-branch
-
-git add .
-git commit -m "Initial commit on new branch"
-git push -u origin <new-branch>
-```
-
+ 
 ```
 || المهام
 
@@ -49,20 +34,8 @@ git push -u origin <new-branch>
 - مستوى الخبرة في الحاسب ذكرها كتخصص
 ```
 
-
-
-const CoursesSchema = new Schema({title: String,context: String,links: [String],keys: [String],location: String,age: {start: Number,end: Number},center: String,nationality: String,price: Number})
-"nationality": [{"value": "Lebanese","label": "لبناني"},{"value": Palestinian","label": "فلسطيني"},{"value": "Syrian","label": "سوري"},{"value": "All","label": "الكل"}] يجب ان تكون الجنسية وفقا للقيم هذه فقط 
-context syntax markdown
-only lang arabic
-اذا رقم الهاتف موجود قم بمعالجته وتحويله الى رابط واتس اب ,واضافتها لقسم الروابط 
-اذا كانت هناك الدورة ليست اونلاين يجب إضافة الموقع واذا كانت اونلاين يمكن اضافة الموقع اختياري
-Reply all format json
-
-
-تحليل النصوص في الردود القادمة وتحويلها  وتحوليه الى json بنفس هذه البنية أعلاه
-انتظرني
-
+ 
+```
 Backend Point
 - cashing
 - Load Balancer
@@ -84,12 +57,16 @@ Backend Point
 - Logging
 - Error Handling
 - Monitoring
+ 
+```
 
-folders
-|- server
-|--|- app.js
-|--|- package.json # express.js
-|--|- ...
-|- client
-|--|- package.json # Vite.js => react
-|--|- ...
+```
+const CoursesSchema = new Schema({title: String,context: String,links: [String],location: String,age: {start: Number,end: Number},center: String,nationality: String,price: Number})
+"nationality": [{"value": "Lebanese","label": "لبناني"},{"value": Palestinian","label": "فلسطيني"},{"value": "Syrian","label": "سوري"},{"value": "All","label": "الكل"}] يجب ان تكون الجنسية وفقا للقيم هذه فقط 
+- استخرج النصوص من الصور بدقة عالية 
+- اذا رقم الهاتف موجود قم بمعالجته وتحويله الى رابط واتس اب ,واضافتها لقسم الروابط 
+- context syntax markdown
+- only lang arabic
+- تحليل النصوص في الردود القادمة وتحويلها  وتحوليه الى json بنفس هذه البنية أعلاه
+Reply all format json only
+```

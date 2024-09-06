@@ -1,6 +1,29 @@
 import axios from 'axios';
 import Spinner from '../../components/Element/Spinner';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'دلني  | الدورات',
+    description: 'حقق أهدافك التعليمية مع الدورات المصممة لك',
+    applicationName: 'دلني',
+    manifest: '/manifest.json',
+    themeColor: 'white',
+    icons: [
+        {
+            rel: 'icon',
+            url: '/favicon.ico',
+            sizes: 'any',
+            type: 'image/x-icon',
+        },
+    ],
+    openGraph: {
+        title: 'دلني | الدورات',
+        description: 'حقق أهدافك التعليمية مع الدورات المصممة لك',
+        type: 'website',
+        siteName: 'دلني',
+    },
+}
 
 export default async function Coursecard() {
     let { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}/student/courses`)
