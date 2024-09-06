@@ -10,6 +10,7 @@ const generateTokens = (userId) => {
 };
 
 export default async function login(req, res) {
+    console.log( req.body);
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (user && await bcrypt.compare(password, user.password)) {
