@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react"
 import "@/components/index.css"
 
 import type { Metadata } from 'next'
+import Landing from './loading';
 
 export const metadata: Metadata = {
     title: 'دلني  ',
@@ -35,6 +36,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </head>
             <body dir='rtl'>
                 <div className="flex flex-col min-h-screen bg-white *:text-slate-900">
+                    <Landing />
+
                     <Nav />
                     <Analytics />
                     <main className="flex-grow justify-center flex max-w-[1300px] mt-[100px] m-auto w-full">
