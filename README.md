@@ -13,12 +13,10 @@ this [all prompt](Ai-prompt.md)
 || المهام
 
 - انشاء قسم إرسال الايميلات
-- ربط برمجية ارسال الرسائل 
-- عمل برومت لتقييم الدورات التي يطلبها الشخص وتصنيفها واختيار المستوى 
+ - عمل برومت لتقييم الدورات التي يطلبها الشخص وتصنيفها واختيار المستوى 
 - refeshToken 
 - اختبار الموقع
-- اضافة خيار العمل لاجل تحسين 
-
+ 
 || التحسين
 - الترجمة لانكليزي والفرنسي للوصول للسوق اللبناني
 - دراسة تجربة المستخدم
@@ -33,32 +31,7 @@ this [all prompt](Ai-prompt.md)
 - تحسين واجهة اختيار سنة الميلاد
 - مستوى الخبرة في الحاسب ذكرها كتخصص
 ```
-
- 
-```
-Backend Point
-- cashing
-- Load Balancer
-- Containerization
-- Microservices
-- Scalability
-- WebSocket
-- ORM (Object-Relational Mapping)
-- Session Management 
-- SSL/TLS
-- Endpoint
-- Rate Limiting
-- Webhook 
-- Load Testing
-- Hotfix
-- Release
-- Rollback
-- Data Encryption
-- Logging
-- Error Handling
-- Monitoring
- 
-```
+# Prompt
 
 ```
 const CoursesSchema = new Schema({title: String,context: String,links: [String],location: String,age: {start: Number,end: Number},center: String,nationality: String,price: Number})
@@ -70,3 +43,5 @@ const CoursesSchema = new Schema({title: String,context: String,links: [String],
 - تحليل النصوص في الردود القادمة وتحويلها  وتحوليه الى json بنفس هذه البنية أعلاه
 Reply all format json only
 ```
+
+# [Note](note.md)

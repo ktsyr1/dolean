@@ -60,3 +60,31 @@ numbers.forEach(number => {
 });
 
 ```
+
+
+
+ 
+```
+Backend Point
+- cashing
+- Load Balancer
+- Containerization
+- Microservices
+- Scalability
+- WebSocket
+- ORM (Object-Relational Mapping)
+- Session Management 
+- SSL/TLS
+- Endpoint
+- Rate Limiting
+- Webhook 
+- Load Testing
+- Hotfix
+- Release
+- Rollback
+- Data Encryption
+- Logging
+- Error Handling
+- Monitoring
+ 
+```

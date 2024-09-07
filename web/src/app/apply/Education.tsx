@@ -61,6 +61,11 @@ const Education = () => {
                 />
             )}
             <FormField
+                label="العمل"
+                name="work"
+                validation={{ required: " العمل مطلوب" }}
+            />
+            <FormField
                 label="لغتك الإنجليزية"
                 name="englishLevel"
                 as="select"

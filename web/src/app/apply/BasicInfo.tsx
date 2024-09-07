@@ -15,7 +15,7 @@ interface Option {
 }
 
 const BasicInfo: React.FC = () => {
-    const { watch } = useFormContext();
+    const { watch, formState: { errors } } = useFormContext();
 
     const [district, setDistrict] = useState<Option[]>(() => {
         const list = Array.from(new Set(District.map((a: TypeDistrictData) => a.District)));
@@ -39,6 +39,7 @@ const BasicInfo: React.FC = () => {
         const cityOptions = Cities();
         if (inputDistrict) setCities(cityOptions);
     }, [inputDistrict]);
+    // console.log(errors);
 
     return (
         <div>

@@ -5,7 +5,7 @@ import UserDetails from '../models/UserDetails.js'; // افترض أن المخ�
 export const createUserDetails = async (req, res) => {
     try {
         // 2005-08-27T21:00:00.000Z to 20050827
-        let births = new Date(req.body.births).toJSON().split("T")[0].replaceAll("-", "")
+        let births = new Date(req.body.births).toJSON()?.split("T")[0].replaceAll("-", "")
         req.body.births = Number(births)
         // إنشاء مستند جديد بناءً على البيانات المستلمة
         const newUserDetails = await UserDetails.create(req.body);
