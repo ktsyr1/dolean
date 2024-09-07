@@ -11,7 +11,7 @@ const Home = () => {
             <Coureslist />
             <AddDefCourses />
             <PricingSection />
-            <FAQAccordion />
+            <FAQAccordion path={"/"}/>
         </div>
     );
 };

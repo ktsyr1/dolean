@@ -10,6 +10,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Spinner from '@/components/Element/Spinner';
+import FAQAccordion from '@/components/theme/FAQ';
 
 
 const Join: React.FC = ({ searchParams: { state } }: any) => {
@@ -50,8 +51,8 @@ const Join: React.FC = ({ searchParams: { state } }: any) => {
     }
     return (
         <FormProvider {...methods}>
-            <div className="flex flex-col items-center w-full max-w-md mx-auto p-4 rtl *:text-slate-900">
-                <main className="w-full space-y-6">
+            <div className="flex flex-col items-center w-full  mx-auto p-4 rtl *:text-slate-900">
+                <main className="w-full space-y-6 max-w-md">
                     <section className="text-center">
                         <h2 className="text-xl font-bold">اخبرنا عنك</h2>
                         <p className="text-muted-foreground">حتى نستطيع العثور بدقة أعلى على تدريبات تناسبك</p>
@@ -65,7 +66,9 @@ const Join: React.FC = ({ searchParams: { state } }: any) => {
                         </form>
                     }
                     {/* <View /> */}
+
                 </main>
+                <FAQAccordion path={"/apply"} />
             </div>
         </FormProvider>
     );
