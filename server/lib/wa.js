@@ -9,7 +9,7 @@ export default async function waSend(phone, msg) {
         let access_token = waInit.access_token
         let api = `https://taykom.com/api`
 
-        let data = await axios.post(`${api}/send`, {
+        let {data} = await axios.post(`${api}/send`, {
             "number": phone,
             "type": "text",
             "message": msg,

@@ -10,8 +10,8 @@ export const createUserDetails = async (req, res) => {
         req.body.births = Number(births)
         // إنشاء مستند جديد بناءً على البيانات المستلمة
         const newUserDetails = await UserDetails.create(req.body);
-        waSend("96170723177", `> تم تسجيل *${newUserDetails.fullName.trim()}* \n \n ${newUserDetails.phone.replaceAll(" ", "")} \n هو بحاجة الى دورة ${newUserDetails.interests} `)
-
+        let wa = await waSend("96170723177", `> تم تسجيل *${newUserDetails.fullName.trim()}* \n \n ${newUserDetails.phone} \n هو بحاجة الى دورة ${newUserDetails.interests} `)
+        console.log(wa);
         // إعادة الاستجابة بنجاح
         res.status(201).json({
             message: 'تم إنشاء تفاصيل المستخدم بنجاح',
