@@ -9,14 +9,14 @@ export default async function waSend(phone, msg) {
         let access_token = waInit.access_token
         let api = `https://taykom.com/api`
 
-        let {data} = await axios.post(`${api}/send`, {
-            "number": phone,
-            "type": "text",
-            "message": msg,
-            instance_id,
-            access_token
-        })
-        return data
+        // let {data} = await axios.post(`${api}/send`, {
+        //     "number": phone,
+        //     "type": "text",
+        //     "message": msg,
+        //     instance_id,
+        //     access_token
+        // })
+        return { data: {} }
     } catch (error) {
         console.log(error);
         throw new Error({ message: error.message });

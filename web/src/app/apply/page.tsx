@@ -49,7 +49,6 @@ const Join: React.FC = ({ searchParams: { state } }: any) => {
             </form>
         )
     }
-    if (loading) return <Spinner />
     return (
         <FormProvider {...methods}>
             <div className="flex flex-col items-center w-full  mx-auto p-4 rtl *:text-slate-900">
@@ -62,7 +61,7 @@ const Join: React.FC = ({ searchParams: { state } }: any) => {
                         <StaticInfo />
                         : <form onSubmit={handleSubmit(onSubmit)}>
                             <FormStepper step={step} setStep={setStep}>
-                                {steps.map((step, index) => <div key={index}> {step} </div>)}
+                                {loading ? <Spinner /> : steps.map((step, index) => <div key={index}> {step} </div>)}
                             </FormStepper>
                         </form>
                     }
