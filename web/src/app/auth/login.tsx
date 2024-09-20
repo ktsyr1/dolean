@@ -24,7 +24,7 @@ const Login: React.FC = () => {
         setLoading(true);
         try {
             const response: any = await createFatch(`/auth/login`, data)
-            console.log(response);
+            console.log({response});
 
             // const response = await axios.post(url, data);
             Cookies.set('authorization', response?.token, { expires: 1 });
