@@ -6,6 +6,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import FormField from '@/components/Element/FormField';
+import { createFatch } from '../action';
 
 interface LoginFormInputs {
     email: string;
@@ -22,10 +23,12 @@ const Login: React.FC = () => {
     const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
         setLoading(true);
         try {
-            const url = `${process.env.NEXT_PUBLIC_API}/auth/login`;
-            const response = await axios.post(url, data);
-            Cookies.set('authorization', response.data?.token, { expires: 1 });
-            Cookies.set('isAdmin', response.data?.isAdmin, { expires: 1 });
+            const response: any = await createFatch(`/auth/login`, data)
+            console.log(response);
+
+            // const response = await axios.post(url, data);
+            Cookies.set('authorization', response?.token, { expires: 1 });
+            Cookies.set('isAdmin', response?.isAdmin, { expires: 1 });
             router.replace('/'); // استبدال location.reload() بـ router.replace('/')
         } catch (error: any) {
             setErrorMessage(error.response?.data?.message || 'حدث خطأ أثناء تسجيل الدخول. يرجى المحاولة مرة أخرى.');

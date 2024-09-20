@@ -69,8 +69,9 @@ const AddDefCourse = ({ nextStep }: any) => {
             const text = await navigator.clipboard.readText();
             console.log(text);
             let { data: html }: any = await axios.get(`${process.env.NEXT_PUBLIC_MICRO}/metadata?url=${text}`)
-            console.log(html);
-
+            let context = html.description.slice(html.description.indexOf(":") + 2)
+            console.log({ html, context });
+            document.querySelector("[name=context]").textContent = context
             // let json = JSON.parse(text)
             // if (json.title && json.context) {
             //     setCourse(json)

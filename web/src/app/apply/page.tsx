@@ -49,6 +49,7 @@ const Join: React.FC = ({ searchParams: { state } }: any) => {
             </form>
         )
     }
+    if (loading) return <Spinner />
     return (
         <FormProvider {...methods}>
             <div className="flex flex-col items-center w-full  mx-auto p-4 rtl *:text-slate-900">

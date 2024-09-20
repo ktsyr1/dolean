@@ -25,7 +25,7 @@ app.get("/api/metadata", async (req: Request, res: Response) => {
 
         const metadata = {
             title: document.querySelector("title")?.textContent || "",
-            // description: document.querySelector('meta[name="description"]')?.getAttribute("content") || "",
+            description: document.querySelector('meta[name="description"]')?.getAttribute("content") || "",
             // ogTitle: document.querySelector('meta[property="og:title"]')?.getAttribute("content") || "",
             // ogDescription: document.querySelector('meta[property="og:description"]')?.getAttribute("content") || "",
             ogImage: document.querySelector('meta[property="og:image"]')?.getAttribute("content") || "",

@@ -11,6 +11,7 @@ export default async function OneUsersDetails({ params: { id } }: any) {
         // افترض أنك تستدعي API للحصول على بيانات المستخدم
         let { data: user } = await axios.get(`${process.env.NEXT_PUBLIC_API}/admin/users-details/${id}`, headers)
         if (!user) return <p>Loading...</p>;
+console.log({user});
 
         return (
             <main className="w-full ">
