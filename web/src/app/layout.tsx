@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'حقق أهدافك التعليمية مع الدورات المصممة لك',
     applicationName: 'دلني',
     manifest: '/manifest.json',
-    themeColor: 'white',
+    // themeColor: 'white',
     icons: [
         {
             rel: 'icon',
