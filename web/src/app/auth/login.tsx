@@ -23,12 +23,18 @@ const Login: React.FC = () => {
     const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
         setLoading(true);
         try {
-            const response: any = await createFatch(`/auth/login`, data)
-            console.log({response});
+            const response: any = await fetch(`${process.env.NEXT_PUBLIC_API}/auth/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            const res = await response.json();
 
             // const response = await axios.post(url, data);
-            Cookies.set('authorization', response?.token, { expires: 1 });
-            Cookies.set('isAdmin', response?.isAdmin, { expires: 1 });
+            Cookies.set('authorization', res?.token, { expires: 1 });
+            Cookies.set('isAdmin', res?.isAdmin, { expires: 1 });
             router.replace('/'); // استبدال location.reload() بـ router.replace('/')
         } catch (error: any) {
             setErrorMessage(error.response?.data?.message || 'حدث خطأ أثناء تسجيل الدخول. يرجى المحاولة مرة أخرى.');

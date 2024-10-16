@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useCallback } from 'react';
 import { Plus, FileText, CheckSquare, Trash, Archive, Eye, EyeOff, RefreshCw, Calendar } from 'lucide-react';
 

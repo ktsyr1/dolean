@@ -4,13 +4,13 @@ import User from '../../models/User.js';
 
 // دالة لإنشاء رموز الوصول والتحديث
 const generateTokens = (userId) => {
-    const token = jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '15m' });
+    const token = jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '7d' });
     const refreshToken = jwt.sign({ userId }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '7d' });
+    // console.log({token});
     return { token, refreshToken };
 };
 
 export default async function login(req, res) {
-    console.log( req.body);
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (user && await bcrypt.compare(password, user.password)) {

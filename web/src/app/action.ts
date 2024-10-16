@@ -15,6 +15,8 @@ export const createFatch = async (url: string, body: any, token?: string): Promi
     
     return axios.post(`${process.env.NEXT_PUBLIC_API}${url}`, body, { headers })
         .then(({ data }) => {
+            console.log(data);
+            
             return data
         })
         .catch((error: Function) => console.log(error))

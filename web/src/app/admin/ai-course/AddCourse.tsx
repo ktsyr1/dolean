@@ -30,7 +30,8 @@ export default function AddCourse({ nextStep, prevStep }: any) {
             const { data } = await axios.post(url, { ...res, ...Res }, { headers: { Authorization: `Bearer ${token}` } });
             localStorage.setItem("course", data._id)
             // await axios.post(url, data, headers);
-            nextStep();
+            // nextStep();
+            location.reload()
         } catch (error) {
             console.error('Error adding course:', error);
         }
