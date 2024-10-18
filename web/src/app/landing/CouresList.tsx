@@ -33,7 +33,7 @@ function Card({ data, className }: any) {
                 : <div className='h-[300px]  w-auto bg-gray-200 rounded-md flex justify-center items-center text-gray-300 font-bold'>لا يوجد صورة</div>}
             <div className="p-5">
                 <h5 className="text-xl font-medium tracking-tight text-gray-900 ddark:text-white">{title}</h5>
-                <p className="text-gray-700 bg-gray-100 p-2 rounded-lg mt-2 w-max">{location}</p>
+                <p className="text-gray-700 bg-gray-100 p-2 rounded-lg mt-2">{location}</p>
             </div>
         </Link>
     );
