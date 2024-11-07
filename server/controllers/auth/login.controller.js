@@ -3,18 +3,18 @@ import jwt from 'jsonwebtoken';
 import User from '../../models/User.js';
 
 // دالة لإنشاء رموز الوصول والتحديث
-const generateTokens = (userId) => {
-    const token = jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '7d' });
-    const refreshToken = jwt.sign({ userId }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '7d' });
+const generateTokens = (userId ,email) => {
+    const token = jwt.sign({ userId,email }, process.env.JWT_SECRET, { expiresIn: '7d' });
+    // const refreshToken = jwt.sign({ userId }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '7d' });
     // console.log({token});
-    return { token, refreshToken };
+    return { token };
 };
 
 export default async function login(req, res) {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (user && await bcrypt.compare(password, user.password)) {
-        const { token, refreshToken } = generateTokens(user._id);
+        const { token, refreshToken } = generateTokens(user._id ,user.email );
 
         await user.save({ refreshToken });
         res.cookie('authorization', token, {
